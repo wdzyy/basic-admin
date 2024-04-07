@@ -1,6 +1,10 @@
 {
+  "name": "zy-admin",
   "type": "module",
-  "version": "4.7.0",
+  "version": "0.0.1",
+  "description": "A Vue 3 admin template without UI",
+  "author": "QJia",
+  "homepage": "http://",
   "engines": {
     "node": "^18.0.0 || ^20.0.0"
   },

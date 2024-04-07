@@ -122,7 +122,7 @@ function open(url: string) {
       <PageMain class="ecology">
         <template #title>
           <div class="title-info">
-            <img src="https://fantastic-admin.gitee.io/logo.png">
+            <img src="https://picsum.photos/200/300">
             <div>
               <h1 class="c-[#e60000]">
                 Fantastic-admin

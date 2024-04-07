@@ -1,12 +1,8 @@
 import banner from 'vite-plugin-banner'
+import pkg from '../../package.json'
 
 export default function createBanner() {
-  return banner(`
-/**
- * 由 Fantastic-admin 提供技术支持
- * Powered by Fantastic-admin
- * Gitee  https://fantastic-admin.gitee.io
- * Github https://fantastic-admin.github.io
- */
-`)
+  return banner(
+    `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
+  )
 }

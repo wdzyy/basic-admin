@@ -31,9 +31,22 @@ export default async ({ mode, command }) => {
       },
     },
     // 构建选项 https://cn.vitejs.dev/config/#server-fsserve-root
+    esbuild: {
+      drop: ['console', 'debugger'],
+    },
     build: {
       outDir: mode === 'production' ? 'dist' : `dist-${mode}`,
       sourcemap: env.VITE_BUILD_SOURCEMAP === 'true',
+      chunkSizeWarningLimit: 5000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            }
+          },
+        },
+      },
     },
     define: {
       __SYSTEM_INFO__: JSON.stringify({
