@@ -22,8 +22,7 @@ const router = useRouter()
 const settingsStore = useSettingsStore()
 const userStore = useUserStore()
 
-const banner = new URL('../assets/images/login-banner.png', import.meta.url).href
-const logo = new URL('../assets/images/logo.png', import.meta.url).href
+// const bgImage = new URL('../assets/images/login-main.svg', import.meta.url).href
 const title = import.meta.env.VITE_APP_TITLE
 
 // 表单类型，login 登录，register 注册，reset 重置密码
@@ -34,8 +33,8 @@ const redirect = ref(route.query.redirect?.toString() ?? settingsStore.settings.
 // 登录
 const loginFormRef = ref<FormInstance>()
 const loginForm = ref({
-  account: localStorage.login_account || '',
-  password: '',
+  account: localStorage.login_account || 'admin',
+  password: '123456',
   remember: !!localStorage.login_account,
 })
 const loginRules = ref<FormRules>({
@@ -142,26 +141,16 @@ function handleReset() {
     }
   })
 }
-
-function testAccount(account: string) {
-  loginForm.value.account = account
-  loginForm.value.password = '123456'
-  handleLogin()
-}
 </script>
 
 <template>
   <div>
     <div class="bg-banner" />
     <div id="login-box">
-      <div class="login-banner">
-        <img :src="logo" class="logo">
-        <img :src="banner" class="banner">
-      </div>
       <ElForm v-show="formType === 'login'" ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form">
         <div class="title-container">
           <h3 class="title">
-            欢迎来到 {{ title }} ! 👋🏻
+            {{ title }} 欢迎您!
           </h3>
         </div>
         <div>
@@ -196,15 +185,6 @@ function testAccount(account: string) {
           <ElLink type="primary" :underline="false" @click="formType = 'register'">
             创建新帐号
           </ElLink>
-        </div>
-        <div style="margin-top: 20px; margin-bottom: -20px; text-align: center;">
-          <ElDivider>演示账号一键登录</ElDivider>
-          <ElButton type="primary" size="small" plain @click="testAccount('admin')">
-            admin
-          </ElButton>
-          <ElButton size="small" plain @click="testAccount('test')">
-            test
-          </ElButton>
         </div>
       </ElForm>
       <ElForm v-show="formType === 'register'" ref="registerFormRef" :model="registerForm" :rules="registerRules" class="login-form" auto-complete="on">
@@ -316,22 +296,6 @@ function testAccount(account: string) {
     box-shadow: none;
     transform: translateX(0) translateY(0);
 
-    .login-banner {
-      width: 100%;
-      padding: 20px 0;
-
-      .banner {
-        position: relative;
-        top: inherit;
-        right: inherit;
-        display: inherit;
-        width: 100%;
-        max-width: 375px;
-        margin: 0 auto;
-        transform: translateY(0);
-      }
-    }
-
     .login-form {
       width: 100%;
       min-height: auto;
@@ -353,42 +317,22 @@ function testAccount(account: string) {
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, var(--g-container-bg), var(--g-bg));
+  // background: radial-gradient(circle at center, var(--g-container-bg), cadetblue);
+  background: url("/src/assets/images/login-bg.png") no-repeat;
+  background-size: cover;
 }
 
 #login-box {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 85%;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
   background-color: var(--g-container-bg);
   border-radius: 10px;
   box-shadow: var(--el-box-shadow);
-  transform: translateX(-50%) translateY(-50%);
-
-  .login-banner {
-    position: relative;
-    width: 450px;
-    overflow: hidden;
-    background-color: var(--g-bg);
-
-    .banner {
-      width: 100%;
-
-      @include position-center(y);
-    }
-
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      height: 30px;
-      border-radius: 4px;
-      box-shadow: var(--el-box-shadow-light);
-    }
-  }
+  transform: translateX(-85%) translateY(-50%);
 
   .login-form {
     display: flex;
@@ -404,9 +348,11 @@ function testAccount(account: string) {
 
       .title {
         margin: 0 auto 30px;
-        font-size: 1.3em;
-        font-weight: bold;
+        font-size: 27px;
+        font-weight: normal;
         color: var(--el-text-color-primary);
+        text-align: center;
+        letter-spacing: 3px;
       }
     }
   }

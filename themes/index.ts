@@ -34,11 +34,54 @@ export const lightTheme = {
   '--g-sub-sidebar-menu-active-bg': '#0f0f0f',
   '--g-sub-sidebar-menu-active-color': '#fff',
   // 标签栏
+  '--g-tabbar-bg': '#fff',
   '--g-tabbar-dividers-bg': '#a3a3a3',
   '--g-tabbar-tab-color': '#a3a3a3',
   '--g-tabbar-tab-hover-bg': '#e5e5e5',
   '--g-tabbar-tab-hover-color': '#0f0f0f',
   '--g-tabbar-tab-active-color': '#0f0f0f',
+}
+
+export const greenTheme = {
+  'color-scheme': 'green',
+  // 内置 UI
+  '--ui-primary': hex2rgba('#18A058')!.join(' '),
+  '--ui-text': hex2rgba('#fcfcfc')!.join(' '),
+  // 主体
+  '--g-bg': '#f2f2f2',
+  '--g-container-bg': '#fff',
+  '--g-border-color': '#f2f2f2',
+  // 头部
+  '--g-header-bg': '#1d2935',
+  '--g-header-color': '#fff',
+  '--g-header-menu-color': '#fff',
+  '--g-header-menu-hover-bg': '#42b983',
+  '--g-header-menu-hover-color': '#fff',
+  '--g-header-menu-active-bg': '#18a058',
+  '--g-header-menu-active-color': '#fff',
+  // 主导航
+  '--g-main-sidebar-bg': '#f2f2f2',
+  '--g-main-sidebar-menu-color': '#0f0f0f',
+  '--g-main-sidebar-menu-hover-bg': '#42b983',
+  '--g-main-sidebar-menu-hover-color': '#fff',
+  '--g-main-sidebar-menu-active-bg': '#18a058',
+  '--g-main-sidebar-menu-active-color': '#fff',
+  // 次导航
+  '--g-sub-sidebar-bg': '#fff',
+  '--g-sub-sidebar-logo-bg': '#0f0f0f',
+  '--g-sub-sidebar-logo-color': '#fff',
+  '--g-sub-sidebar-menu-color': '#0f0f0f',
+  '--g-sub-sidebar-menu-hover-bg': '#42b983',
+  '--g-sub-sidebar-menu-hover-color': '#fff',
+  '--g-sub-sidebar-menu-active-bg': '#18a058',
+  '--g-sub-sidebar-menu-active-color': '#fff',
+  // 标签栏
+  '--g-tabbar-bg': '#fff',
+  '--g-tabbar-dividers-bg': '#a3a3a3',
+  '--g-tabbar-tab-color': '#a3a3a3',
+  '--g-tabbar-tab-hover-bg': '#42b983',
+  '--g-tabbar-tab-hover-color': '#fff',
+  '--g-tabbar-tab-active-color': '#18a058',
 }
 
 export const darkTheme = {
@@ -75,6 +118,7 @@ export const darkTheme = {
   '--g-sub-sidebar-menu-active-bg': '#e5e5e5',
   '--g-sub-sidebar-menu-active-color': '#0a0a0a',
   // 标签栏
+  '--g-tabbar-bg': '#0a0a0a',
   '--g-tabbar-dividers-bg': '#a8a29e',
   '--g-tabbar-tab-color': '#a8a29e',
   '--g-tabbar-tab-hover-bg': '#1b1b1b',

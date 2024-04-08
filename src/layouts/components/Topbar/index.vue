@@ -48,8 +48,8 @@ watch(scrollTop, (val, oldVal) => {
       'hide': scrollOnHide,
     }" data-fixed-calc-width
   >
-    <Tabbar v-if="settingsStore.settings.tabbar.enable" />
     <Toolbar v-if="enableToolbar" />
+    <Tabbar v-if="settingsStore.settings.tabbar.enable" />
   </div>
 </template>
 

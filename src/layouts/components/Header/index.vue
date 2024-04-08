@@ -35,12 +35,12 @@ function handlerMouserScroll(event: WheelEvent) {
           <div class="menu flex of-hidden transition-all">
             <template v-for="(item, index) in menuStore.allMenus" :key="index">
               <div
-                class="menu-item relative transition-all" :class="{
+                class="menu-item relative px-1 py-2 transition-all" :class="{
                   active: index === menuStore.actived,
                 }"
               >
                 <div
-                  v-if="item.children && item.children.length !== 0" class="group menu-item-container h-full w-full flex cursor-pointer items-center justify-between gap-1 px-3 text-[var(--g-header-menu-color)] transition-all hover:(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)])" :class="{
+                  v-if="item.children && item.children.length !== 0" class="group menu-item-container h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 px-3 text-[var(--g-header-menu-color)] transition-all hover:(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)])" :class="{
                     'text-[var(--g-header-menu-active-color)]! bg-[var(--g-header-menu-active-bg)]!': index === menuStore.actived,
                   }" :title="typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title" @click="switchTo(index)"
                 >
@@ -140,6 +140,26 @@ header {
           &.active .menu-item-container {
             color: var(--g-header-menu-active-color);
             background-color: var(--g-header-menu-active-bg);
+          }
+
+          &::before {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            content: "";
+            background-color: var(--g-header-menu-active-bg);
+            border-radius: 2px;
+            box-shadow: 0 0 0 1px var(--g-header-bg);
+            opacity: 0;
+            transition: all 0.3s;
+            transform: translate(-50%);
+          }
+
+          &.active::before {
+            width: 20px;
+            opacity: 1;
           }
         }
       }

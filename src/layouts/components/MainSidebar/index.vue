@@ -21,12 +21,12 @@ const { switchTo } = useMenu()
       <div class="menu flex flex-col of-hidden transition-all">
         <template v-for="(item, index) in menuStore.allMenus" :key="index">
           <div
-            class="menu-item relative transition-all" :class="{
+            class="menu-item relative px-2 py-1 transition-all" :class="{
               active: index === menuStore.actived,
             }"
           >
             <div
-              v-if="item.children && item.children.length !== 0" class="group menu-item-container h-full w-full flex cursor-pointer items-center justify-between gap-1 py-4 text-[var(--g-main-sidebar-menu-color)] transition-all hover:(bg-[var(--g-main-sidebar-menu-hover-bg)] text-[var(--g-main-sidebar-menu-hover-color)]) px-2!" :class="{
+              v-if="item.children && item.children.length !== 0" class="group menu-item-container h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 py-4 text-[var(--g-main-sidebar-menu-color)] transition-all hover:(bg-[var(--g-main-sidebar-menu-hover-bg)] text-[var(--g-main-sidebar-menu-hover-color)]) px-2!" :class="{
                 'text-[var(--g-main-sidebar-menu-active-color)]! bg-[var(--g-main-sidebar-menu-active-bg)]!': index === menuStore.actived,
               }" :title="typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title" @click="switchTo(index)"
             >
@@ -93,6 +93,26 @@ const { switchTo } = useMenu()
       &.active .menu-item-container {
         color: var(--g-main-sidebar-menu-active-color) !important;
         background-color: var(--g-main-sidebar-menu-active-bg) !important;
+      }
+
+      &::before {
+        position: absolute;
+        inset-inline-start: 6px;
+        top: 50%;
+        width: 4px;
+        height: 0;
+        content: "";
+        background-color: var(--g-main-sidebar-menu-active-bg);
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px var(--g-main-sidebar-bg);
+        opacity: 0;
+        transition: all 0.3s;
+        transform: translateY(-50%);
+      }
+
+      &.active::before {
+        height: 20px;
+        opacity: 1;
       }
     }
   }

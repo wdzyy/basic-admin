@@ -4,8 +4,6 @@
 
 <template>
   <div>
-    <PageMain>
-      主页
-    </PageMain>
+    <PageMain>基础表格</PageMain>
   </div>
 </template>

@@ -24,22 +24,22 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
     switchMainMenuAndPageJump: false,
     subMenuUniqueOpened: true,
     subMenuCollapse: false,
-    enableSubMenuCollapseButton: false,
+    enableSubMenuCollapseButton: true,
     enableHotkeys: false,
   },
   topbar: {
     mode: 'static',
   },
   tabbar: {
-    enable: false,
-    enableIcon: false,
+    enable: true,
+    enableIcon: true,
     enableHotkeys: false,
   },
   toolbar: {
     breadcrumb: true,
     navSearch: true,
-    fullscreen: false,
-    pageReload: false,
+    fullscreen: true,
+    pageReload: true,
     colorScheme: false,
   },
   mainPage: {

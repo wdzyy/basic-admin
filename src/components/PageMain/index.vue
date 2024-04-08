@@ -37,7 +37,7 @@ function unCollaspe() {
         {{ title }}
       </slot>
     </div>
-    <div class="main-container p-5">
+    <div class="main-container p-4">
       <slot />
     </div>
     <div v-if="isCollaspe" class="collaspe absolute bottom-0 w-full cursor-pointer from-transparent to-[var(--g-container-bg)] bg-gradient-to-b pb-2 pt-10 text-center" @click="unCollaspe">
