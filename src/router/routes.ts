@@ -3,6 +3,7 @@ import generatedRoutes from 'virtual:generated-pages'
 import type { RouteRecordRaw } from 'vue-router'
 import MultilevelMenuExample from './modules/multilevel.menu.example'
 import Components from './modules/components'
+import Echarts from './modules/echarts'
 import type { Route } from '#/global'
 import useSettingsStore from '@/store/modules/settings'
 
@@ -76,6 +77,15 @@ const asyncRoutes: Route.recordMainRaw[] = [
     },
     children: [
       Components,
+    ],
+  },
+  {
+    meta: {
+      title: '图表',
+      icon: 'i-uim:box',
+    },
+    children: [
+      Echarts,
     ],
   },
 ]

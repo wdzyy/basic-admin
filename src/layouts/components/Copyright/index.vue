@@ -23,7 +23,9 @@ const settingsStore = useSettingsStore()
 
 <style lang="scss" scoped>
 .copyright {
-  --at-apply: flex items-center justify-center flex-wrap my-4 px-4 text-sm text-stone-5;
+  --at-apply: flex items-center justify-center flex-wrap text-sm text-stone-5;
+
+  padding-bottom: var(--g-main-content-padding);
 
   span,
   a {

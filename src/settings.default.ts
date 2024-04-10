@@ -28,7 +28,7 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
     enableHotkeys: false,
   },
   topbar: {
-    mode: 'static',
+    mode: 'fixed',
   },
   tabbar: {
     enable: true,

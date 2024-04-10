@@ -7,10 +7,11 @@ meta:
 
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
-import { ElMessage } from 'element-plus'
+import Message from 'vue-m-message'
 import Copyright from '@/layouts/components/Copyright/index.vue'
 import useSettingsStore from '@/store/modules/settings'
 import useUserStore from '@/store/modules/user'
+import { formatAxis } from '@/utils/formatTime'
 
 defineOptions({
   name: 'Login',
@@ -46,6 +47,10 @@ const loginRules = ref<FormRules>({
     { min: 6, max: 18, trigger: 'blur', message: '密码长度为6到18位' },
   ],
 })
+// 时间获取
+const currentTime = computed(() => {
+  return formatAxis(new Date())
+})
 function handleLogin() {
   loginFormRef.value && loginFormRef.value.validate((valid) => {
     if (valid) {
@@ -58,6 +63,12 @@ function handleLogin() {
         else {
           localStorage.removeItem('login_account')
         }
+        // 登录成功提示
+        const signInText = '欢迎回来！'
+        const currentTimeInfo = currentTime.value
+        Message.success(`${currentTimeInfo}，${signInText}`, {
+          zIndex: 2000,
+        })
         router.push(redirect.value)
       }).catch(() => {
         loading.value = false
@@ -100,7 +111,7 @@ const registerRules = ref<FormRules>({
   ],
 })
 function handleRegister() {
-  ElMessage({
+  Message({
     message: '注册模块仅提供界面演示，无实际功能，需开发者自行扩展',
     type: 'warning',
   })
@@ -131,9 +142,9 @@ const resetRules = ref<FormRules>({
   ],
 })
 function handleReset() {
-  ElMessage({
+  Message({
     message: '重置密码仅提供界面演示，无实际功能，需开发者自行扩展',
-    type: 'info',
+    type: 'warning',
   })
   resetFormRef.value && resetFormRef.value.validate((valid) => {
     if (valid) {

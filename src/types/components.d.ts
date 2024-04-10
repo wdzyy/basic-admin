@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Auth: typeof import('./../components/Auth/index.vue')['default']
     AuthAll: typeof import('./../components/AuthAll/index.vue')['default']
+    BaseEcharts: typeof import('./../components/BaseEcharts/index.vue')['default']
     BasicTable: typeof import('./../components/BasicTable/index.vue')['default']
     FileUpload: typeof import('./../components/FileUpload/index.vue')['default']
     FixedActionBar: typeof import('./../components/FixedActionBar/index.vue')['default']
@@ -27,6 +28,7 @@ declare module 'vue' {
     ImagePreview: typeof import('./../components/ImagePreview/index.vue')['default']
     ImagesUpload: typeof import('./../components/ImagesUpload/index.vue')['default']
     ImageUpload: typeof import('./../components/ImageUpload/index.vue')['default']
+    ListPageWrapper: typeof import('./../components/ListPageWrapper/index.vue')['default']
     NotAllowed: typeof import('./../components/NotAllowed/index.vue')['default']
     PageHeader: typeof import('./../components/PageHeader/index.vue')['default']
     PageMain: typeof import('./../components/PageMain/index.vue')['default']

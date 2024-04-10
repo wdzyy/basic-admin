@@ -34,6 +34,7 @@
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
     "defu": "^6.1.4",
+    "echarts": "^5.5.0",
     "element-plus": "^2.6.3",
     "eruda": "^3.0.1",
     "floating-vue": "5.2.2",

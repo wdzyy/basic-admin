@@ -6,9 +6,9 @@ export const lightTheme = {
   '--ui-primary': hex2rgba('#0f0f0f')!.join(' '),
   '--ui-text': hex2rgba('#fcfcfc')!.join(' '),
   // 主体
-  '--g-bg': '#f2f2f2',
+  '--g-bg': '#F3F7FA',
   '--g-container-bg': '#fff',
-  '--g-border-color': '#f2f2f2',
+  '--g-border-color': '#F3F7FA',
   // 头部
   '--g-header-bg': '#fff',
   '--g-header-color': '#0f0f0f',
@@ -18,7 +18,7 @@ export const lightTheme = {
   '--g-header-menu-active-bg': '#0f0f0f',
   '--g-header-menu-active-color': '#fff',
   // 主导航
-  '--g-main-sidebar-bg': '#f2f2f2',
+  '--g-main-sidebar-bg': '#F3F7FA',
   '--g-main-sidebar-menu-color': '#0f0f0f',
   '--g-main-sidebar-menu-hover-bg': '#dde1e3',
   '--g-main-sidebar-menu-hover-color': '#0f0f0f',
@@ -48,9 +48,9 @@ export const greenTheme = {
   '--ui-primary': hex2rgba('#18A058')!.join(' '),
   '--ui-text': hex2rgba('#fcfcfc')!.join(' '),
   // 主体
-  '--g-bg': '#f2f2f2',
+  '--g-bg': '#F3F7FA',
   '--g-container-bg': '#fff',
-  '--g-border-color': '#f2f2f2',
+  '--g-border-color': '#F3F7FA',
   // 头部
   '--g-header-bg': '#1d2935',
   '--g-header-color': '#fff',
@@ -60,15 +60,15 @@ export const greenTheme = {
   '--g-header-menu-active-bg': '#18a058',
   '--g-header-menu-active-color': '#fff',
   // 主导航
-  '--g-main-sidebar-bg': '#f2f2f2',
-  '--g-main-sidebar-menu-color': '#0f0f0f',
+  '--g-main-sidebar-bg': '#1d2935',
+  '--g-main-sidebar-menu-color': '#fff',
   '--g-main-sidebar-menu-hover-bg': '#42b983',
   '--g-main-sidebar-menu-hover-color': '#fff',
   '--g-main-sidebar-menu-active-bg': '#18a058',
   '--g-main-sidebar-menu-active-color': '#fff',
   // 次导航
   '--g-sub-sidebar-bg': '#fff',
-  '--g-sub-sidebar-logo-bg': '#0f0f0f',
+  '--g-sub-sidebar-logo-bg': '#1d2935',
   '--g-sub-sidebar-logo-color': '#fff',
   '--g-sub-sidebar-menu-color': '#0f0f0f',
   '--g-sub-sidebar-menu-hover-bg': '#42b983',

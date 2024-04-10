@@ -13,6 +13,7 @@ export default antfu(
       'eslint-comments/no-unlimited-disable': 'off',
       'curly': ['error', 'all'],
       'antfu/consistent-list-newline': 'off',
+      'no-console': 'off',
     },
   },
   {
