@@ -156,12 +156,13 @@ function handleReset() {
 
 <template>
   <div>
+    <img src="../assets/icons/logo.svg" class="fixed left-10 top-10 z-10 h-100px">
     <div class="bg-banner" />
     <div id="login-box">
       <ElForm v-show="formType === 'login'" ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form">
         <div class="title-container">
-          <h3 class="title">
-            {{ title }} 欢迎您!
+          <h3 class="title flex items-center justify-center">
+            <img src="../assets/icons/logo-z.svg" class="z-10 mr-2 h-50px">{{ title }} 欢迎您!
           </h3>
         </div>
         <div>

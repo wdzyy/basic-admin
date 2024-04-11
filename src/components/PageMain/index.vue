@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import useSettingsStore from '@/store/modules/settings'
-
 defineOptions({
   name: 'PageMain',
 })
@@ -17,15 +15,9 @@ const props = withDefaults(
     height: '',
   },
 )
-const settingsStore = useSettingsStore()
+
 const titleSlot = !!useSlots().title
 
-const defaultHeight = computed(() => {
-  if (props.height) {
-    return props.height
-  }
-  return settingsStore.settings.menu.menuMode === 'head' ? 'calc(100vh - var(--g-toolbar-height) - var(--g-tabbar-height) - var(--g-header-height) - var(--g-main-content-margin) * 2)' : 'calc(100vh - var(--g-toolbar-height) - var(--g-tabbar-height) - var(--g-main-content-margin) * 2)'
-})
 const isCollaspe = ref(props.collaspe)
 function unCollaspe() {
   isCollaspe.value = false
@@ -34,10 +26,10 @@ function unCollaspe() {
 
 <template>
   <div
-    class="page-main relative m-[var(--g-main-content-margin)] flex flex-col overflow-auto bg-[var(--g-container-bg)] transition-background-color-300" :class="{
+    class="page-main relative m-[var(--g-main-content-margin)] flex flex-col bg-[var(--g-container-bg)] transition-background-color-300" :class="{
       'of-hidden': isCollaspe,
     }" :style="{
-      height: defaultHeight,
+      height: isCollaspe ? height : '',
     }"
   >
     <div v-if="titleSlot || title" class="title-container border-b-1 border-b-[var(--g-bg)] border-b-solid px-5 py-4 transition-border-color-300">
