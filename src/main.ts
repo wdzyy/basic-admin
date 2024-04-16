@@ -1,3 +1,4 @@
+import DisableDevtool from 'disable-devtool'
 import '@/utils/system.copyright'
 
 import FloatingVue from 'floating-vue'
@@ -27,6 +28,18 @@ import 'virtual:uno.css'
 
 // 全局样式
 import '@/assets/styles/globals.scss'
+
+// 具体配置可以点进去看
+if (import.meta.env.MODE === 'production') {
+// 不是开发环境时，禁用开发工具
+  DisableDevtool({
+    md5: '45e0bfcdb33e87e0ac18346037c53b7c', // qj
+    tkName: 'zy', // 绕过禁用时的url参数名称，默认为 zy
+    url: 'about:blank', // 关闭页面失败时的跳转页面，默认值为localhost
+    timeOutUrl: 'about:blank', // 关闭页面超时跳转的url;
+    disableMenu: false, // 是否禁用右键菜单 默认为true
+  })
+}
 
 const app = createApp(App)
 app.use(FloatingVue, {

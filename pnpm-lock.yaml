@@ -26,6 +26,9 @@ dependencies:
   defu:
     specifier: ^6.1.4
     version: 6.1.4
+  disable-devtool:
+    specifier: ^0.3.7
+    version: 0.3.7
   echarts:
     specifier: ^5.5.0
     version: 5.5.0
@@ -5448,6 +5451,10 @@ packages:
     dependencies:
       path-type: 4.0.0
     dev: true
+
+  /disable-devtool@0.3.7:
+    resolution: {integrity: sha512-xF5uyEpBhDuy7b4Bb88GQG4IB+2CwuQfkJK9vB/ym+85NQp/f7Wc6hnT40Jy2SkKvEf1xAKpvJUJU3LykTXxKg==}
+    dev: false
 
   /doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
