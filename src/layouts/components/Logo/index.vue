@@ -27,7 +27,7 @@ const to = computed(() => settingsStore.settings.home.enable ? settingsStore.set
 
 <template>
   <RouterLink :to="to" class="h-[var(--g-sidebar-logo-height)] w-inherit flex-center gap-2 px-3 text-inherit no-underline" :class="{ 'cursor-pointer': settingsStore.settings.home.enable }" :title="title">
-    <img v-if="showLogo" :src="logo" class="logo object-contain">
+    <img v-if="showLogo" :src="logo" class="logo w-40px object-contain">
     <span v-if="showTitle" class="block truncate font-bold">{{ title }}</span>
   </RouterLink>
 </template>
