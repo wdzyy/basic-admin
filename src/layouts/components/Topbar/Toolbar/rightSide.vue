@@ -6,7 +6,6 @@ import ColorScheme from './ColorScheme/index.vue'
 import eventBus from '@/utils/eventBus'
 import useSettingsStore from '@/store/modules/settings'
 import useUserStore from '@/store/modules/user'
-import ava from '@/assets/icons/favicon.svg'
 
 defineOptions({
   name: 'Tools',
@@ -23,7 +22,6 @@ watch(() => userStore.avatar, () => {
     avatarError.value = false
   }
 })
-const avatar = computed(() => userStore.avatar || ava)
 </script>
 
 <template>
@@ -46,7 +44,7 @@ const avatar = computed(() => userStore.avatar || ava)
       ]" class="flex-center cursor-pointer px-2"
     >
       <div class="flex-center gap-1">
-        <img v-if="avatar && !avatarError" :src="avatar" :onerror="() => (avatarError = true)" class="h-[24px] w-[24px] rounded-full">
+        <img v-if="userStore.avatar && !avatarError" :src="userStore.avatar" :onerror="() => (avatarError = true)" class="h-[24px] w-[24px] rounded-full">
         <SvgIcon v-else name="i-carbon:user-avatar-filled-alt" :size="24" class="text-gray-400" />
         {{ userStore.account }}
         <SvgIcon name="i-ep:caret-bottom" />
