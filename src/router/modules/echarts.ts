@@ -11,7 +11,7 @@ const routes: RouteRecordRaw = {
   name: 'Echarts',
   meta: {
     title: '图表',
-    icon: 'i-heroicons-solid:menu-alt-3',
+    icon: 'i-ri:remixicon-line',
   },
   children: [
     {

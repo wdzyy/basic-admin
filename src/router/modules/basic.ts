@@ -15,7 +15,7 @@ const routes: RouteRecordRaw = {
   name: 'Basic',
   meta: {
     title: '基础',
-    icon: 'i-heroicons-solid:menu-alt-3',
+    icon: 'i-ri:function-line',
     // breadcrumb: false, // 是否在面包屑展示
     // singleMenu: true, // 该配置用于简化只想展示一级，没有二级菜单导航的路由配置。
     /**

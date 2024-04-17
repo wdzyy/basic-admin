@@ -11,7 +11,7 @@ const routes: RouteRecordRaw = {
   name: 'Table',
   meta: {
     title: '表格组件',
-    icon: 'i-heroicons-solid:menu-alt-3',
+    icon: 'i-bx:bxs-component',
   },
   children: [
     {

@@ -76,7 +76,7 @@ const asyncRoutes: Route.recordMainRaw[] = [
   {
     meta: {
       title: '组件',
-      icon: 'i-uim:box',
+      icon: 'i-bx:bxs-component',
     },
     children: [
       Components,
@@ -85,7 +85,7 @@ const asyncRoutes: Route.recordMainRaw[] = [
   {
     meta: {
       title: '图表',
-      icon: 'i-uim:box',
+      icon: 'i-ri:remixicon-line',
     },
     children: [
       Echarts,
@@ -94,7 +94,7 @@ const asyncRoutes: Route.recordMainRaw[] = [
   {
     meta: {
       title: '基础',
-      icon: 'i-uim:box',
+      icon: 'i-ri:function-line',
     },
     children: [
       Basic,
