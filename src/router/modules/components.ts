@@ -22,6 +22,14 @@ const routes: RouteRecordRaw = {
         title: '基础表格',
       },
     },
+    {
+      path: 'button',
+      name: 'ButtonView',
+      component: () => import('@/views/components/button/index.vue'),
+      meta: {
+        title: '按钮',
+      },
+    },
   ],
 }
 

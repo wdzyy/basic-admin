@@ -9,6 +9,7 @@ import 'vue-m-message/dist/style.css'
 
 import 'overlayscrollbars/overlayscrollbars.css'
 
+import type { Directive } from 'vue'
 import App from './App.vue'
 import pinia from './store'
 import router from './router'
@@ -29,6 +30,9 @@ import 'virtual:uno.css'
 // 全局样式
 import '@/assets/styles/globals.scss'
 
+// 自定义指令
+import * as directives from '@/directives'
+
 // 具体配置可以点进去看
 if (import.meta.env.MODE === 'production') {
 // 不是开发环境时，禁用开发工具
@@ -42,6 +46,9 @@ if (import.meta.env.MODE === 'production') {
 }
 
 const app = createApp(App)
+Object.keys(directives).forEach((key) => {
+  app.directive(key, (directives as { [key: string]: Directive })[key])
+})
 app.use(FloatingVue, {
   distance: 12,
 })
