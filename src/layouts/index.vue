@@ -8,6 +8,7 @@ import Search from './components/Search/index.vue'
 import HotkeysIntro from './components/HotkeysIntro/index.vue'
 import AppSetting from './components/AppSetting/index.vue'
 import LinkView from './components/views/link.vue'
+import IFrameView from './components/views/iframe.vue'
 import Copyright from './components/Copyright/index.vue'
 import BackTop from './components/BackTop/index.vue'
 import useSettingsStore from '@/store/modules/settings'
@@ -29,6 +30,7 @@ const mainPage = useMainPage()
 const menu = useMenu()
 
 const isLink = computed(() => !!routeInfo.meta.link)
+const isIframe = computed(() => !!routeInfo.meta.iframe)
 
 watch(() => settingsStore.settings.menu.subMenuCollapse, (val) => {
   if (settingsStore.mode === 'mobile') {
@@ -87,11 +89,12 @@ const enableAppSetting = import.meta.env.VITE_APP_SETTING === 'true'
             <RouterView v-slot="{ Component, route }">
               <Transition name="slide-right" mode="out-in" appear>
                 <KeepAlive :include="keepAliveStore.list">
-                  <component :is="Component" v-show="!isLink" :key="route.fullPath" />
+                  <component :is="Component" v-show="!isLink && !isIframe" :key="route.fullPath" />
                 </KeepAlive>
               </Transition>
             </RouterView>
             <LinkView v-if="isLink" />
+            <IFrameView v-if="isIframe" />
           </div>
           <Copyright />
         </div>

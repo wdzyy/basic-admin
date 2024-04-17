@@ -234,6 +234,7 @@ declare module 'vue-router' {
     cache?: boolean | string | string[]
     noCache?: string | string[]
     link?: string
+    iframe?: string
     breadcrumbNeste?: Route.breadcrumb[]
   }
 }

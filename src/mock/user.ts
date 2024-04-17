@@ -12,7 +12,8 @@ export default defineFakeRoute([
         data: Mock.mock({
           account: body.account,
           token: `${body.account}_@string`,
-          avatar: 'https://picsum.photos/200/300',
+          // avatar: () => Mock.Random.image('200x200', '#50B347', '#FFF', 'Mock.js'),
+          // avatar: 'https://picsum.photos/200/300',
         }),
       }
     },
