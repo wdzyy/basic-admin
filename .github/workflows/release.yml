@@ -17,38 +17,7 @@ jobs:
         with:
           node-version: 20
 
-      - run: npx changelogithub # or changelogithub@0.12 if ensure the stable result
         env:
           ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
 
-  upload-archive:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get Release
-        id: last_release
-        uses: joutvhu/get-release@v1
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        with:
-          latest: true
-
-      - name: Create Archive
-        uses: thedoctor0/zip-release@main
-        with:
-          type: zip
-          filename: basic-admin.${{ steps.last_release.outputs.tag_name }}.zip
-          exclusions: '/.git/* /.github/*'
-
-      - name: Upload Archive To Release
-        uses: xresloader/upload-to-github-release@v1
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        with:
-          release_id: ${{ steps.last_release.outputs.id }}
-          draft: false
-          file: basic-admin.${{ steps.last_release.outputs.tag_name }}.zip
+        run: echo "Hello" ${{secrets.ACCESS_TOKEN}}
