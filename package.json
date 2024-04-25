@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "A Vue 3 admin template without UI",
   "author": "QJia",
-  "homepage": "http://",
+  "homepage": "https://github.com/wdzyy/basic-admin",
   "engines": {
     "node": "^18.0.0 || ^20.0.0"
   },
