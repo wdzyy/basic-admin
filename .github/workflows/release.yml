@@ -9,4 +9,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{secrets.ACCESS_TOKEN}}
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+        env:
+          ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+      - run: echo "Hello world!"
