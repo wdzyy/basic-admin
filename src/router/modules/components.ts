@@ -8,9 +8,9 @@ const routes: RouteRecordRaw = {
   path: '/components',
   component: Layout,
   redirect: '/components/basic-table',
-  name: 'Table',
+  name: 'Components',
   meta: {
-    title: '表格组件',
+    title: '组件',
     icon: 'i-bx:bxs-component',
   },
   children: [
