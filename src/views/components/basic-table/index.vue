@@ -103,16 +103,28 @@ const data = ref([
 ])
 const currentPage = ref(1)
 const pageSize = ref(100)
+function handleClick() {
+  ElMessage.success('修改成功！')
+}
 </script>
 
 <template>
   <ListPageWrapper>
     <template #default>
+      <el-button @click="handleClick">
+        点我呀
+      </el-button>
       <!-- class="h-full" 需要自适应高度时，必须设置 -->
       <el-table class="h-full" :data="data" fit border>
         <el-table-column fixed prop="date" label="日期" width="180" />
         <el-table-column prop="name" label="姓名" width="180" />
-        <el-table-column prop="address" label="地址" />
+        <el-table-column prop="address" label="地址">
+          <template #default="{ row }">
+            <el-button type="text">
+              {{ row.address }}
+            </el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </template>
     <template #foot>
