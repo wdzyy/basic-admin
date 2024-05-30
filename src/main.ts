@@ -13,7 +13,11 @@ import type { Directive } from 'vue'
 import App from './App.vue'
 import pinia from './store'
 import router from './router'
-import ui from './ui-provider'
+/**
+ * 如果要替换为其他 UI 库，可以在这里替换
+ * 本项目使用了element-plus
+ */
+// import ui from './ui-provider'
 
 // 自定义指令
 import directive from '@/utils/directive'
@@ -55,7 +59,7 @@ app.use(FloatingVue, {
 app.use(Message)
 app.use(pinia)
 app.use(router)
-app.use(ui)
+// app.use(ui)
 directive(app)
 if (icons.isOfflineUse) {
   for (const info of icons.collections) {

@@ -3,7 +3,7 @@ import zhCN from 'element-plus/es/locale/lang/zh-cn.mjs'
 </script>
 
 <template>
-  <ElConfigProvider :locale="zhCN" :button="{ autoInsertSpace: true }">
+  <ElConfigProvider :locale="zhCN" :button="{ autoInsertSpace: true }" namespace="el">
     <slot />
   </ElConfigProvider>
 </template>
