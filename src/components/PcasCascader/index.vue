@@ -113,7 +113,7 @@ function anyToCode(value: any[], dictionarie: any[] = pcasData.value) {
 }
 
 function codeToAny(codes: string[], dictionarie: any[] = pcasData.value): any {
-  const output = []
+  const output: any[] = []
   const findItem = dictionarie.find(item => item.code === codes[0])
   if (findItem) {
     switch (props.format) {

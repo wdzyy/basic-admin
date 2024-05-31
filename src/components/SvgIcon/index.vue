@@ -29,7 +29,7 @@ const outputType = computed(() => {
 })
 
 const style = computed(() => {
-  const transform = []
+  const transform: any[] = []
   if (props.flip) {
     switch (props.flip) {
       case 'horizontal':

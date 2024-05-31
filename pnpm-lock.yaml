@@ -16,7 +16,7 @@ dependencies:
     version: 10.9.0(vue@3.4.21)
   '@vueuse/integrations':
     specifier: ^10.9.0
-    version: 10.9.0(axios@1.6.8)(nprogress@0.2.0)(vue@3.4.21)
+    version: 10.9.0(axios@1.6.8)(nprogress@0.2.0)(sortablejs@1.15.2)(vue@3.4.21)
   axios:
     specifier: ^1.6.8
     version: 1.6.8
@@ -74,6 +74,9 @@ dependencies:
   qs:
     specifier: ^6.12.0
     version: 6.12.0
+  sortablejs:
+    specifier: ^1.15.2
+    version: 1.15.2
   vconsole:
     specifier: ^3.15.1
     version: 3.15.1
@@ -115,6 +118,9 @@ devDependencies:
   '@types/qs':
     specifier: ^6.9.14
     version: 6.9.14
+  '@types/sortablejs':
+    specifier: ^1.15.8
+    version: 1.15.8
   '@unocss/eslint-plugin':
     specifier: ^0.58.8
     version: 0.58.8(eslint@8.57.0)(typescript@5.4.3)
@@ -3250,6 +3256,10 @@ packages:
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
     dev: true
 
+  /@types/sortablejs@1.15.8:
+    resolution: {integrity: sha512-b79830lW+RZfwaztgs1aVPgbasJ8e7AXtZYHTELNXZPsERt4ymJdjV4OccDbHQAvHrCcFpbF78jkm0R6h/pZVg==}
+    dev: true
+
   /@types/svgo@2.6.4:
     resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
     dependencies:
@@ -4038,7 +4048,7 @@ packages:
       - vue
     dev: false
 
-  /@vueuse/integrations@10.9.0(axios@1.6.8)(nprogress@0.2.0)(vue@3.4.21):
+  /@vueuse/integrations@10.9.0(axios@1.6.8)(nprogress@0.2.0)(sortablejs@1.15.2)(vue@3.4.21):
     resolution: {integrity: sha512-acK+A01AYdWSvL4BZmCoJAcyHJ6EqhmkQEXbQLwev1MY7NBnS+hcEMx/BzVoR9zKI+UqEPMD9u6PsyAuiTRT4Q==}
     peerDependencies:
       async-validator: '*'
@@ -4083,6 +4093,7 @@ packages:
       '@vueuse/shared': 10.9.0(vue@3.4.21)
       axios: 1.6.8
       nprogress: 0.2.0
+      sortablejs: 1.15.2
       vue-demi: 0.14.7(vue@3.4.21)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -10084,6 +10095,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /sortablejs@1.15.2:
+    resolution: {integrity: sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==}
+    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
