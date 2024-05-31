@@ -63,7 +63,7 @@ onBeforeUpdate(() => {
 })
 
 const resultList = computed(() => {
-  let result: any[] = []
+  let result = []
   result = sourceList.value.filter((item) => {
     let flag = false
     if (item.title) {
@@ -259,12 +259,12 @@ function pageJump(path: listTypes['path'], link: listTypes['link']) {
                 <DialogDescription class="relative m-0 of-y-hidden">
                   <OverlayScrollbarsComponent ref="searchResultRef" :options="{ scrollbars: { autoHide: 'leave', autoHideDelay: 300 } }" defer class="h-full">
                     <template v-if="resultList.length > 0">
-                      <a v-for="(item, index) in resultList as any[]" ref="searchResultItemRef" :key="item.path" class="flex cursor-pointer items-center" :class="{ 'bg-stone-2/40 dark:bg-stone-7/40': index === actived }" :data-index="index" @click="pageJump(item.path, item.link)" @mouseover="actived = index">
+                      <a v-for="(item, index) in resultList" ref="searchResultItemRef" :key="item.path" class="flex cursor-pointer items-center" :class="{ 'bg-stone-2/40 dark:bg-stone-7/40': index === actived }" :data-index="index" @click="pageJump(item.path, item.link)" @mouseover="actived = index">
                         <SvgIcon v-if="item.icon" :name="item.icon" :size="20" class="basis-16 transition" :class="{ 'scale-120 text-ui-primary': index === actived }" />
                         <div class="flex flex-1 flex-col gap-1 truncate px-4 py-3" border-l="~ solid stone-2 dark:stone-7">
                           <div class="truncate text-base font-bold">{{ (typeof item.title === 'function' ? item.title() : item.title) ?? '[ 无标题 ]' }}</div>
                           <Breadcrumb v-if="item.breadcrumb.length" class="truncate">
-                            <BreadcrumbItem v-for="(bc, bcIndex) in item.breadcrumb as any[]" :key="bcIndex" class="text-xs">
+                            <BreadcrumbItem v-for="(bc, bcIndex) in item.breadcrumb" :key="bcIndex" class="text-xs">
                               {{ (typeof bc.title === 'function' ? bc.title() : bc.title) ?? '[ 无标题 ]' }}
                             </BreadcrumbItem>
                           </Breadcrumb>
