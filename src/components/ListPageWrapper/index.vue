@@ -35,22 +35,24 @@ const slots = defineSlots()
     flex: 1;
     flex-direction: column;
     height: inherit;
-    padding: 16px;
     overflow: hidden;
     color: #303133;
-    background-color: #fff;
     border: 1px solid var(--g-border-color);
     border-radius: 4px;
     transition: 0.3s;
   }
 
   .list-page__head {
-    padding-bottom: 16px;
+    padding: 16px 16px 0;
+    margin-bottom: 10px;
+    background-color: #fff;
   }
 
   .list-page__main {
     flex: 1;
+    padding: 16px;
     overflow: auto;
+    background-color: #fff;
   }
 
   .list-page__foot {

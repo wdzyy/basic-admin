@@ -15,20 +15,48 @@ const routes: RouteRecordRaw = {
   },
   children: [
     {
-      path: 'basic-table',
-      name: 'BasicTable',
-      component: () => import('@/views/components/basic-table/index.vue'),
+      path: 'table',
+      name: 'Table',
+      redirect: '/components/table/basic',
       meta: {
-        title: '基础表格',
+        title: '表格',
       },
+      children: [
+        {
+          path: 'basic-table',
+          name: 'BasicTable',
+          component: () => import('@/views/components/table/basic/index.vue'),
+          meta: {
+            title: '基础表格',
+          },
+        },
+        {
+          path: 'tree-table',
+          name: 'TreeTable',
+          component: () => import('@/views/components/table/tree/index.vue'),
+          meta: {
+            title: '树形表格',
+          },
+        },
+      ],
     },
     {
       path: 'button',
-      name: 'ButtonView',
-      component: () => import('@/views/components/button/index.vue'),
+      name: 'Button',
+      redirect: '/components/button/basic',
       meta: {
         title: '按钮',
       },
+      children: [
+        {
+          path: 'basic-button',
+          name: 'BasicButton',
+          component: () => import('@/views/components/button/basic/index.vue'),
+          meta: {
+            title: '基础按钮',
+          },
+        },
+      ],
     },
   ],
 }

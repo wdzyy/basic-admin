@@ -24,6 +24,7 @@ export default antfu(
       'vue/block-order': ['error', {
         order: ['route', 'script', 'template', 'style'],
       }],
+      'vue/no-unused-refs': 'off',
     },
   },
 )

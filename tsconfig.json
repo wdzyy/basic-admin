@@ -29,6 +29,7 @@
     "allowImportingTsExtensions": true,
     "allowJs": false,
     "strict": true,
+    "noImplicitAny": false,
     "noEmit": true,
     "sourceMap": true,
     "esModuleInterop": true,

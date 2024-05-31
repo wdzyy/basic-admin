@@ -196,7 +196,7 @@ const enableAppSetting = import.meta.env.VITE_APP_SETTING === 'true'
   .main-container {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
     margin-left: calc(var(--g-main-sidebar-actual-width) + var(--g-sub-sidebar-actual-width));
     background-color: var(--g-bg);
     box-shadow: -1px 0 0 0 var(--g-border-color), 1px 0 0 0 var(--g-border-color);
@@ -206,7 +206,8 @@ const enableAppSetting = import.meta.env.VITE_APP_SETTING === 'true'
       position: relative;
       flex: auto;
       height: 100%;
-      overflow: hidden;
+      padding: 10px 12px;
+      overflow: auto;
       transition: 0.3s;
     }
 
