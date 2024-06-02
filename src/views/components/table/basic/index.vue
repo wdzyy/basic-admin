@@ -1,5 +1,4 @@
 <script setup lang="tsx">
-import { ElMessage, ElMessageBox } from 'element-plus'
 import { CirclePlus, Delete, Download, EditPen, Refresh, Upload, View } from '@element-plus/icons-vue'
 import type { ColumnProps, HeaderRenderScope, ZyTableInstance } from '@/components/ZyTable/interface'
 

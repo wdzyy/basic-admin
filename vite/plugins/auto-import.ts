@@ -1,5 +1,5 @@
 import autoImport from 'unplugin-auto-import/vite'
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default function createAutoImport() {
   return autoImport({
@@ -12,10 +12,10 @@ export default function createAutoImport() {
     dirs: [
       './src/utils/composables/**',
     ],
-    // resolvers: [
-    //   ElementPlusResolver({
-    //     importStyle: 'sass',
-    //   }),
-    // ],
+    resolvers: [
+      ElementPlusResolver({
+        importStyle: 'sass',
+      }),
+    ],
   })
 }
