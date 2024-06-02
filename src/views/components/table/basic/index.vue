@@ -738,6 +738,12 @@ function sortTable({ newIndex, oldIndex }: { newIndex?: number, oldIndex?: numbe
 function onAdd(scope: any) {
   ElMessage.success(`新增用户${JSON.stringify(scope)}`)
 }
+function showHeaderMsg() {
+  ElMessage.success('我是通过作用域插槽渲染的表头')
+}
+function showCellMsg() {
+  ElMessage.success('我是通过作用域插槽渲染的内容')
+}
 </script>
 
 <template>
@@ -763,13 +769,13 @@ function onAdd(scope: any) {
       </template>
       <!-- usernameHeader -->
       <template #usernameHeader="scope">
-        <el-button type="primary" @click="ElMessage.success('我是通过作用域插槽渲染的表头')">
+        <el-button type="primary" @click="showHeaderMsg">
           {{ scope.column.label }}
         </el-button>
       </template>
       <!-- createTime -->
       <template #createTime="scope">
-        <el-button type="primary" link @click="ElMessage.success('我是通过作用域插槽渲染的内容')">
+        <el-button type="primary" link @click="showCellMsg">
           {{ scope.row.createTime }}
         </el-button>
       </template>
