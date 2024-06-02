@@ -306,3 +306,15 @@ declare global {
     }
   }
 }
+
+/**
+ * 扩展jsx any报错
+ */
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      // 设置element-plus所有的组件类型为any
+      [elem: string]: any
+    }
+  }
+}
