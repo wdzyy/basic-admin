@@ -736,7 +736,7 @@ function sortTable({ newIndex, oldIndex }: { newIndex?: number, oldIndex?: numbe
   ElMessage.success('修改列表排序成功')
 }
 
-function onAdd(scope) {
+function onAdd(scope: any) {
   ElMessage.success(`新增用户${JSON.stringify(scope)}`)
 }
 </script>
