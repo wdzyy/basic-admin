@@ -8,7 +8,9 @@ import Message from 'vue-m-message'
 import 'vue-m-message/dist/style.css'
 
 import 'overlayscrollbars/overlayscrollbars.css'
+import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import type { Directive } from 'vue'
 import App from './App.vue'
@@ -18,8 +20,8 @@ import router from './router'
  * 如果要替换为其他 UI 库，可以在这里替换
  * 本项目使用了element-plus
  */
-// TODO 由于unplugin 自动导入组件无法引入componen :is 的组件，暂时全局引入，后续注释
-import ui from './ui-provider'
+// TODO 由于unplugin 自动导入组件无法引入componen :is 的组件,所以暂时全局引入
+// import ui from './ui-provider'
 
 // 自定义指令
 import directive from '@/utils/directive'
@@ -61,7 +63,8 @@ app.use(FloatingVue, {
 app.use(Message)
 app.use(pinia)
 app.use(router)
-app.use(ui)
+app.use(ElementPlus)
+// app.use(ui)
 directive(app)
 if (icons.isOfflineUse) {
   for (const info of icons.collections) {
