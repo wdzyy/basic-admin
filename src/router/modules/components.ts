@@ -30,14 +30,14 @@ const routes: RouteRecordRaw = {
             title: '基础表格',
           },
         },
-        // {
-        //   path: 'tree-table',
-        //   name: 'TreeTable',
-        //   component: () => import('@/views/components/table/tree/index.vue'),
-        //   meta: {
-        //     title: '树形表格',
-        //   },
-        // },
+        {
+          path: 'tree-table',
+          name: 'TreeTable',
+          component: () => import('@/views/components/table/tree/index.vue'),
+          meta: {
+            title: '树形表格',
+          },
+        },
       ],
     },
     {

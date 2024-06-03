@@ -44,6 +44,7 @@ declare module 'vue' {
     SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']
     SystemInfo: typeof import('./../components/SystemInfo/index.vue')['default']
     TableColumn: typeof import('./../components/ZyTable/components/TableColumn.vue')['default']
+    TreeFilter: typeof import('./../components/TreeFilter/index.vue')['default']
     Trend: typeof import('./../components/Trend/index.vue')['default']
     ZyTable: typeof import('./../components/ZyTable/index.vue')['default']
   }
