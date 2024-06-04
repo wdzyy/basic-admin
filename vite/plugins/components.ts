@@ -1,7 +1,6 @@
 import components from 'unplugin-vue-components/vite'
 // 全局引入了element-plus，所以不需要再引入
 // import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import TinyVueResolver from '@opentiny/unplugin-tiny-vue'
 
 export default function createComponents() {
   return components({
@@ -10,8 +9,7 @@ export default function createComponents() {
       'src/layouts/ui-kit',
     ],
     include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
-    dts: './src/types/components.d.ts',
-    resolvers: [TinyVueResolver('vite')],
+    dts: 'components.d.ts',
     // resolvers: [
     //   ElementPlusResolver({
     //     importStyle: 'sass',
