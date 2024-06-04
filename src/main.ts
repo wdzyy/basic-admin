@@ -8,12 +8,14 @@ import Message from 'vue-m-message'
 import 'vue-m-message/dist/style.css'
 
 import 'overlayscrollbars/overlayscrollbars.css'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import type { Directive } from 'vue'
 import App from './App.vue'
 import pinia from './store'
 import router from './router'
-import ui from './ui-provider'
 
 // 自定义指令
 import directive from '@/utils/directive'
@@ -55,7 +57,7 @@ app.use(FloatingVue, {
 app.use(Message)
 app.use(pinia)
 app.use(router)
-app.use(ui)
+app.use(ElementPlus)
 directive(app)
 if (icons.isOfflineUse) {
   for (const info of icons.collections) {
