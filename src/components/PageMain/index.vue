@@ -26,7 +26,7 @@ function unCollaspe() {
 
 <template>
   <div
-    class="page-main relative m-[var(--g-main-content-margin)] flex flex-col bg-[var(--g-container-bg)] transition-background-color-300" :class="{
+    class="page-main relative flex flex-col bg-[var(--g-container-bg)] transition-background-color-300" :class="{
       'of-hidden': isCollaspe,
     }" :style="{
       height: isCollaspe ? height : '',

@@ -20,7 +20,6 @@ import router from './router'
  * 如果要替换为其他 UI 库，可以在这里替换
  * 本项目使用了element-plus
  */
-// TODO 由于unplugin 自动导入组件无法引入componen :is 的组件,所以暂时全局引入
 // import ui from './ui-provider'
 
 // 自定义指令
