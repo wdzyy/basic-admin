@@ -1821,7 +1821,7 @@ function deleteAccount(row?: any) {
           <el-button type="primary" link :icon="EditPen" @click="openDrawer('编辑', scope.row)">
             编辑
           </el-button>
-          <el-button type="primary" link :icon="Delete" @click="deleteAccount(scope.row)">
+          <el-button type="danger" link :icon="Delete" @click="deleteAccount(scope.row)">
             删除
           </el-button>
         </template>
