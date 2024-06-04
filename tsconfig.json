@@ -29,7 +29,6 @@
     "allowImportingTsExtensions": true,
     "allowJs": false,
     "strict": true,
-    // "noImplicitAny": false,
     "noEmit": true,
     "sourceMap": true,
     "esModuleInterop": true,
@@ -46,6 +45,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "components.d.ts",
     "auto-imports.d.ts"
   ]
 }
