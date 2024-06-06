@@ -6,6 +6,7 @@ export const lightTheme = {
   '--ui-primary': hex2rgba('#0f0f0f')!.join(' '),
   '--ui-text': hex2rgba('#fcfcfc')!.join(' '),
   // 主体
+  '--g-primary': '#0f0f0f',
   '--g-bg': '#F3F7FA',
   '--g-container-bg': '#fff',
   '--g-border-color': '#F3F7FA',
@@ -48,6 +49,7 @@ export const greenTheme = {
   '--ui-primary': hex2rgba('#18A058')!.join(' '),
   '--ui-text': hex2rgba('#fcfcfc')!.join(' '),
   // 主体
+  '--g-primary': '#18A058',
   '--g-bg': '#F3F7FA',
   '--g-container-bg': '#fff',
   '--g-border-color': '#F3F7FA',
@@ -90,6 +92,7 @@ export const darkTheme = {
   '--ui-primary': hex2rgba('#e5e5e5')!.join(' '),
   '--ui-text': hex2rgba('#0f0f0f')!.join(' '),
   // 主体
+  '--g-primary': '#e5e5e5',
   '--g-bg': '#0a0a0a',
   '--g-container-bg': '#141414',
   '--g-border-color': '#15191e',

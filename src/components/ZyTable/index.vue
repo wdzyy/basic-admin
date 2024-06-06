@@ -156,12 +156,31 @@ searchColumns.value?.forEach((column, index) => {
 })
 
 // 列设置 ==> 需要过滤掉不需要设置的列
-const colRef = ref()
-const colSetting = tableColumns!.filter((item) => {
-  const { type, prop, isShow } = item
-  return !columnTypes.includes(type!) && prop !== 'operation' && isShow
+const colSetting = computed({
+  get: () => {
+    // 过滤掉不需要设置的列
+    return tableColumns.filter((item: ColumnProps) => {
+      return !columnTypes.includes(item.type!) && item.prop !== 'operation'
+    })
+  },
+  // TODO any 类型需修复
+  set: (val: any[]) => {
+    // 把columnTypes类型的列和operation列存入arr
+    const frontArr: any[] = []
+    const endArr: any[] = []
+    tableColumns.forEach((item: ColumnProps) => {
+      if (columnTypes.includes(item.type!)) {
+        frontArr.push(item)
+      }
+      if (item.prop === 'operation') {
+        endArr.push(item)
+      }
+    })
+    // 把val和arr合并
+    tableColumns.length = 0
+    tableColumns.push(...frontArr, ...val, ...endArr)
+  },
 })
-const openColSetting = () => colRef.value.openColSetting()
 
 function _search() {
   search()
@@ -228,7 +247,14 @@ defineExpose({
       <div v-if="toolButton" class="header-button-ri">
         <slot name="toolButton">
           <el-button v-if="showToolButton('refresh')" :icon="Refresh" circle @click="getTableList" />
-          <el-button v-if="showToolButton('setting') && columns.length" :icon="Operation" circle @click="openColSetting" />
+          <el-popover placement="right" :width="200" trigger="hover">
+            <template #reference>
+              <el-button v-if="showToolButton('setting') && columns.length" :icon="Operation" circle />
+            </template>
+            <template #default>
+              <ColSetting v-model:colSetting="colSetting" />
+            </template>
+          </el-popover>
           <el-button
             v-if="showToolButton('search') && searchColumns?.length"
             :icon="Search"
@@ -304,6 +330,4 @@ defineExpose({
       />
     </slot>
   </div>
-  <!-- 列设置 -->
-  <ColSetting v-if="toolButton" ref="colRef" v-model:col-setting="colSetting" />
 </template>
