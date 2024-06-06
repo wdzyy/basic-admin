@@ -153,6 +153,10 @@ const useTabbarStore = defineStore(
       list.value = []
     }
 
+    function setTabs(tabsMenuList: Tabbar.recordRaw[]) {
+      list.value = tabsMenuList
+    }
+
     return {
       list,
       leaveIndex,
@@ -162,6 +166,7 @@ const useTabbarStore = defineStore(
       removeLeftSide,
       removeRightSide,
       clean,
+      setTabs,
     }
   },
 )
