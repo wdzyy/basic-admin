@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ContextMenu from '@imengyu/vue3-context-menu'
 import '@imengyu/vue3-context-menu/lib/vue3-context-menu.css'
+import Sortable from 'sortablejs'
 import hotkeys from 'hotkeys-js'
 import Message from 'vue-m-message'
 import { useMagicKeys } from '@vueuse/core'
@@ -119,6 +120,20 @@ function onTabbarContextmenu(event: MouseEvent, routeItem: Tabbar.recordRaw) {
   })
 }
 
+// tabs 拖拽排序
+function tabsDrop() {
+  Sortable.create(document.querySelector('.tab-container') as HTMLElement, {
+    draggable: '.tab',
+    animation: 300,
+    onEnd({ newIndex, oldIndex }) {
+      const tabsList = [...tabbarStore.list]
+      const currRow = tabsList.splice(oldIndex as number, 1)[0]
+      tabsList.splice(newIndex as number, 0, currRow)
+      tabbarStore.setTabs(tabsList)
+    },
+  })
+}
+
 onMounted(() => {
   hotkeys('alt+left,alt+right,alt+w,alt+1,alt+2,alt+3,alt+4,alt+5,alt+6,alt+7,alt+8,alt+9,alt+0', (e, handle) => {
     if (settingsStore.settings.tabbar.enable && settingsStore.settings.tabbar.enableHotkeys) {
@@ -164,6 +179,7 @@ onMounted(() => {
       }
     }
   })
+  tabsDrop()
 })
 onUnmounted(() => {
   hotkeys.unbind('alt+q,alt+e,alt+w,alt+1,alt+2,alt+3,alt+4,alt+5,alt+6,alt+7,alt+8,alt+9,alt+0')
