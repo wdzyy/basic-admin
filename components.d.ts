@@ -34,6 +34,7 @@ declare module 'vue' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     FileUpload: typeof import('./src/components/FileUpload/index.vue')['default']
     FixedActionBar: typeof import('./src/components/FixedActionBar/index.vue')['default']
+    FormItem: typeof import('./src/components/ZyForm/components/FormItem.vue')['default']
     Grid: typeof import('./src/components/Grid/index.vue')['default']
     GridItem: typeof import('./src/components/Grid/components/GridItem.vue')['default']
     HButton: typeof import('./src/layouts/ui-kit/HButton.vue')['default']
@@ -67,6 +68,7 @@ declare module 'vue' {
     TableColumn: typeof import('./src/components/ZyTable/components/TableColumn.vue')['default']
     TreeFilter: typeof import('./src/components/TreeFilter/index.vue')['default']
     Trend: typeof import('./src/components/Trend/index.vue')['default']
+    ZyForm: typeof import('./src/components/ZyForm/index.vue')['default']
     ZyTable: typeof import('./src/components/ZyTable/index.vue')['default']
   }
 }

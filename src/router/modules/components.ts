@@ -41,6 +41,24 @@ const routes: RouteRecordRaw = {
       ],
     },
     {
+      path: 'form',
+      name: 'Form',
+      redirect: '/components/form/basic',
+      meta: {
+        title: '表单',
+      },
+      children: [
+        {
+          path: 'basic',
+          name: 'BasicForm',
+          component: () => import('@/views/components/form/index.vue'),
+          meta: {
+            title: '基础表单',
+          },
+        },
+      ],
+    },
+    {
       path: 'button',
       name: 'Button',
       redirect: '/components/button/basic',
