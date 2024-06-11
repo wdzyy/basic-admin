@@ -1,9 +1,10 @@
 <script setup lang="tsx">
 import { computed, inject, ref } from 'vue'
+import type { FormItemProps } from '../interface'
 import { handleProp } from '@/utils'
 
 interface FormItem {
-  column: any
+  column: FormItemProps
   formData: { [key: string]: any }
 }
 defineOptions({
@@ -80,6 +81,22 @@ const placeholder = computed(() => {
     </template>
     <template v-if="column.el === 'select'">
       <el-option
+        v-for="col in columnEnum"
+        :key="col[fieldNames.value]"
+        :label="col[fieldNames.label]"
+        :value="col[fieldNames.value]"
+      />
+    </template>
+    <template v-if="column.el === 'checkbox-group'">
+      <el-checkbox
+        v-for="col in columnEnum"
+        :key="col[fieldNames.value]"
+        :label="col[fieldNames.label]"
+        :value="col[fieldNames.value]"
+      />
+    </template>
+    <template v-if="column.el === 'radio-group'">
+      <el-radio
         v-for="col in columnEnum"
         :key="col[fieldNames.value]"
         :label="col[fieldNames.label]"

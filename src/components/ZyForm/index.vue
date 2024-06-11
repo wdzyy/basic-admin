@@ -1,20 +1,30 @@
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
-import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
-import { use } from 'echarts/types/src/extension.js'
+import type { FormInstance, FormRules } from 'element-plus'
+import type { ButtonAlign, FormItemProps } from './interface'
+import type { BreakPoint } from '@/components/Grid/interface'
 
 const props = defineProps({
   formData: {
     type: Object as () => { [key: string]: any },
     required: true,
   },
+  formItemCol: {
+    type: Object as () => number | Record<BreakPoint, number>,
+    default: () => {
+      return { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }
+    },
+  },
   formColumns: {
-    type: Array as () => any[],
+    type: Array as () => FormItemProps[],
     required: true,
   },
   rules: {
     type: Object as () => FormRules<any>,
     default: () => {},
+  },
+  buttonAlign: {
+    type: String as () => ButtonAlign,
+    default: 'text-right',
   },
 })
 const zyFormRef = ref<FormInstance>()
@@ -28,7 +38,7 @@ watch(() => props.formColumns, async (newVal) => {
 const rules = computed(() => {
   const rules: any = {}
   const formColumns = props.formColumns
-  formColumns.forEach((item: any) => {
+  formColumns.forEach((item: FormItemProps) => {
     if (item.isRequired) {
       rules[item.prop] = [{ required: true, message: `${item.label}必填`, trigger: ['blur', 'change'] }]
       item.rules?.forEach((rule: any) => {
@@ -88,6 +98,18 @@ function resetForm(formEl: FormInstance | undefined) {
   }
   formEl.resetFields()
 }
+// 获取响应式设置
+function getResponsive(item: FormItemProps) {
+  return {
+    span: item?.span,
+    offset: item?.offset ?? 0,
+    xs: item?.xs,
+    sm: item?.sm,
+    md: item?.md,
+    lg: item?.lg,
+    xl: item?.xl,
+  }
+}
 </script>
 
 <template>
@@ -96,20 +118,28 @@ function resetForm(formEl: FormInstance | undefined) {
     v-bind="$attrs"
     :model="formData"
     :rules="rules"
+    label-width="auto"
   >
-    <el-form-item v-for="item in formColumns" :key="item.prop" :label="item.label" :prop="item.prop">
-      <FormItem
-        :column="item" :form-data="formData"
-      />
-    </el-form-item>
+    <Grid ref="gridRef" :gap="[16, 0]" :cols="formItemCol">
+      <GridItem v-for="item in formColumns" :key="item.prop" v-bind="getResponsive(item)">
+        <el-form-item :label="item.label" :prop="item.prop">
+          <FormItem
+            class="w-100%"
+            :column="item" :form-data="formData"
+          />
+        </el-form-item>
+      </GridItem>
+    </Grid>
     <el-form-item>
-      <el-button v-if="$attrs['show-ok-button']" type="primary" @click="submitForm(zyFormRef)">
-        {{ $attrs['ok-button-text'] || 'Submit' }}
-      </el-button>
-      <el-button v-if="$attrs['show-cancel-button']" @click="resetForm(zyFormRef)">
-        {{ $attrs['cancel-button-text'] || 'Reset' }}
-      </el-button>
-      <slot name="button" />
+      <div class="w-full" :class="buttonAlign">
+        <el-button v-if="$attrs['show-ok-button']" type="primary" @click="submitForm(zyFormRef)">
+          {{ $attrs['ok-button-text'] || 'Submit' }}
+        </el-button>
+        <el-button v-if="$attrs['show-cancel-button']" @click="resetForm(zyFormRef)">
+          {{ $attrs['cancel-button-text'] || 'Reset' }}
+        </el-button>
+        <slot name="button" />
+      </div>
     </el-form-item>
   </el-form>
 </template>

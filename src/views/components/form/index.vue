@@ -1,6 +1,9 @@
 <script lang="tsx" setup>
+import type { ButtonAlign, FormItemProps } from '@/components/ZyForm/interface'
+import type { BreakPoint } from '@/components/Grid/interface'
+
 const form = reactive({ desc: '' })
-const formColumns = [
+const formColumns: FormItemProps[] = [
   {
     label: '名字',
     prop: 'name',
@@ -53,6 +56,12 @@ const formColumns = [
     label: '日期',
     prop: 'date1',
     el: 'date-picker',
+  },
+  {
+    label: '日期范围',
+    prop: 'datetimerange',
+    el: 'date-picker',
+    props: { type: 'datetimerange', valueFormat: 'YYYY-MM-DD HH:mm:ss' },
   },
   {
     label: '时间选择',
@@ -135,15 +144,27 @@ const formColumns = [
     ],
   },
   {
-    label: '类型',
-    prop: 'type',
+    label: '多选',
+    prop: 'checkbox',
     el: 'checkbox',
-    props: {
-      options: [
-        { label: 'Online', value: 'online' },
-        { label: 'Offline', value: 'offline' },
-      ],
-    },
+  },
+  {
+    label: '多选组',
+    prop: 'checkboxGroup',
+    el: 'checkbox-group',
+    enum: [
+      { label: 'Online', value: 'online' },
+      { label: 'Offline', value: 'offline' },
+    ],
+  },
+  {
+    label: '单选组',
+    prop: 'radioGroup',
+    el: 'radio-group',
+    enum: [
+      { label: 'Online', value: 'online' },
+      { label: 'Offline', value: 'offline' },
+    ],
   },
   {
     label: '来源',
@@ -185,7 +206,12 @@ const formColumns = [
     el: 'slider',
   },
   {
-    label: '滑块',
+    label: '开关',
+    prop: 'switch',
+    el: 'switch',
+  },
+  {
+    label: '开关2',
     prop: 'switch',
     el: 'switch',
     props: {
@@ -212,11 +238,36 @@ const formColumns = [
 function click() {
   ElMessage.success('我是slot出的按钮啦')
 }
+
+const buttonAlign = ref<ButtonAlign>('text-left')
+const formItemCol = ref<number | Record<BreakPoint, number>>({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 })
 </script>
 
 <template>
   <PageMain>
     {{ form }}
+    <div class="py-16px">
+      <el-button-group>
+        <el-button @click="buttonAlign = 'text-left'">
+          按钮靠左
+        </el-button>
+        <el-button @click="buttonAlign = 'text-center'">
+          按钮居中
+        </el-button>
+        <el-button @click="buttonAlign = 'text-right'">
+          按钮靠右
+        </el-button>
+        <el-button @click="formItemCol = 2">
+          一列2个表单组件
+        </el-button>
+        <el-button @click="formItemCol = { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }">
+          自适应
+        </el-button>
+        <el-button @click="formItemCol = 4">
+          一列4个表单组件
+        </el-button>
+      </el-button-group>
+    </div>
     <zyForm
       :form-data="form"
       :form-columns="formColumns"
@@ -224,6 +275,8 @@ function click() {
       ok-button-text="确定"
       :show-cancel-button="true"
       cancel-button-text="重置"
+      :button-align="buttonAlign"
+      :form-item-col="formItemCol"
     >
       <template #button>
         <el-button @click="click">
