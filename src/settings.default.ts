@@ -25,7 +25,7 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
     subMenuUniqueOpened: true,
     subMenuCollapse: false,
     enableSubMenuCollapseButton: true,
-    enableHotkeys: false,
+    enableHotkeys: true,
   },
   topbar: {
     mode: 'fixed',
@@ -33,7 +33,7 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
   tabbar: {
     enable: true,
     enableIcon: true,
-    enableHotkeys: false,
+    enableHotkeys: true,
   },
   toolbar: {
     breadcrumb: true,
