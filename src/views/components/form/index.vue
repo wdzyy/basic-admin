@@ -212,7 +212,7 @@ const formColumns: FormItemProps[] = [
   },
   {
     label: '开关2',
-    prop: 'switch',
+    prop: 'switch2',
     el: 'switch',
     props: {
       inlinePrompt: true,
