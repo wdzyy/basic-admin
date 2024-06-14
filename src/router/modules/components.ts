@@ -77,6 +77,24 @@ const routes: RouteRecordRaw = {
       ],
     },
     {
+      path: 'cascader',
+      name: 'Cascader',
+      redirect: '/components/china-area-cascader/basic',
+      meta: {
+        title: '级联',
+      },
+      children: [
+        {
+          path: 'basic',
+          name: 'ChinaAreaCascader',
+          component: () => import('@/views/components/china-area-cascader/index.vue'),
+          meta: {
+            title: '区域选择',
+          },
+        },
+      ],
+    },
+    {
       path: 'text',
       name: 'Text',
       redirect: '/components/text',
