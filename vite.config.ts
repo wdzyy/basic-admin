@@ -46,6 +46,18 @@ export default async ({ mode, command }) => {
               return id.toString().split('node_modules/')[1].split('/')[0].toString()
             }
           },
+          chunkFileNames: 'js/[name]-[hash].js',
+          assetFileNames(chunkInfo) {
+            const name = chunkInfo.name
+            const imgList = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.ico']
+            if (name.endsWith('.css')) {
+              return `css/[name]-[hash][extname]`
+            }
+            else if (imgList.some(ext => name.endsWith(ext))) {
+              return `img/[name]-[hash][extname]`
+            }
+            return `assets/[name]-[hash][extname]`
+          },
         },
       },
     },
