@@ -57,6 +57,7 @@
     "vue": "^3.4.21",
     "vue-m-message": "^4.0.2",
     "vue-router": "^4.3.0",
+    "vue-tippy": "^6.4.1",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {

@@ -20,6 +20,9 @@ dependencies:
   axios:
     specifier: ^1.6.8
     version: 1.6.8
+  china-area-data:
+    specifier: ^5.0.1
+    version: 5.0.1
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -89,6 +92,9 @@ dependencies:
   vue-router:
     specifier: ^4.3.0
     version: 4.3.0(vue@3.4.21)
+  vue-tippy:
+    specifier: ^6.4.1
+    version: 6.4.1(vue@3.4.21)
   vuedraggable:
     specifier: ^4.1.0
     version: 4.1.0(vue@3.4.21)
@@ -2906,6 +2912,10 @@ packages:
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
     dev: true
 
+  /@popperjs/core@2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
+
   /@rollup/pluginutils@5.1.0:
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
     engines: {node: '>=14.0.0'}
@@ -4853,6 +4863,10 @@ packages:
   /chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
     dev: true
+
+  /china-area-data@5.0.1:
+    resolution: {integrity: sha512-BQDPpiv5Nn+018ekcJK2oSD9PAD+E1bvXB0wgabc//dFVS/KvRqCgg0QOEUt3vBkx9XzB5a9BmkJCEZDBxVjVw==}
+    dev: false
 
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
@@ -10764,6 +10778,12 @@ packages:
       xtend: 4.0.2
     dev: true
 
+  /tippy.js@6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.8
+    dev: false
+
   /title-case@3.0.3:
     resolution: {integrity: sha512-e1zGYRvbffpcHIrnuqT0Dh+gEJtDaxDSoG4JAIpq4oDFyooziLBIiYQv0GBT4FUAnUop5uZ1hiIAj7oAF6sOCA==}
     dependencies:
@@ -11602,6 +11622,15 @@ packages:
       de-indent: 1.0.2
       he: 1.2.0
     dev: true
+
+  /vue-tippy@6.4.1(vue@3.4.21):
+    resolution: {integrity: sha512-PEAKdioZjUvYWz4euxHFSXKJbL6kIKO29/LtQaCBbnd5Vg0U5kL8iLuqRshB2I31pXPSQS0qJsWx56178eS2QA==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      tippy.js: 6.3.7
+      vue: 3.4.21(typescript@5.4.3)
+    dev: false
 
   /vue-tsc@2.0.7(typescript@5.4.3):
     resolution: {integrity: sha512-LYa0nInkfcDBB7y8jQ9FQ4riJTRNTdh98zK/hzt4gEpBZQmf30dPhP+odzCa+cedGz6B/guvJEd0BavZaRptjg==}

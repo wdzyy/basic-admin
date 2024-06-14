@@ -1,6 +1,9 @@
 import DisableDevtool from 'disable-devtool'
 import '@/utils/system.copyright'
 
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/themes/light.css'
+
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 

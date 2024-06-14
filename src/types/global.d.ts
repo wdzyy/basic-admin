@@ -305,15 +305,20 @@ declare global {
       touched?: boolean
     }
   }
-}
-
-/**
- * 扩展jsx any报错
- */
-declare global {
+  /**
+   * 扩展jsx any报错
+   */
   namespace JSX {
+    interface Element extends VNode {}
+    interface ElementClass extends Vue {}
+    interface ElementAttributesProperty {
+      $props: any
+    }
     interface IntrinsicElements {
       // 设置element-plus所有的组件类型为any
+      [elem: string]: any
+    }
+    interface IntrinsicAttributes {
       [elem: string]: any
     }
   }

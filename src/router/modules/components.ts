@@ -76,6 +76,24 @@ const routes: RouteRecordRaw = {
         },
       ],
     },
+    {
+      path: 'text',
+      name: 'Text',
+      redirect: '/components/text',
+      meta: {
+        title: '文本',
+      },
+      children: [
+        {
+          path: 'basic',
+          name: 'basicText',
+          component: () => import('@/views/components/text/index.vue'),
+          meta: {
+            title: '文本省略',
+          },
+        },
+      ],
+    },
   ],
 }
 
