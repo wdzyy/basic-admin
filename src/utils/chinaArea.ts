@@ -38,7 +38,7 @@ Object.keys(provinceObject).forEach((prop) => {
 // 计算市
 regionData.forEach((item: CascaderOption) => {
   const provinceCode = item.value
-  const provinceText = item.label
+  const provinceText: string = item.label as string
   const provinceChildren: CascaderOption[] = []
   const provinceData = REGION_DATA[provinceCode] ?? {}
 
@@ -65,12 +65,12 @@ provinceAndCityData = cloneDeep(regionData)
 // 计算区
 regionData.forEach((item: CascaderOption) => {
   const province = item.children
-  const provinceText = item.label
+  const provinceText = item.label as string
 
   if (province) {
     province.forEach((pItem) => {
       const cityCode = pItem.value
-      const cityText = pItem.label
+      const cityText = pItem.label as string
       const cityChildren: CascaderOption[] = []
       const cityData = REGION_DATA[cityCode] ?? {}
 
