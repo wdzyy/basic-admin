@@ -11,6 +11,7 @@ declare module 'vue' {
     AuthAll: typeof import('./src/components/AuthAll/index.vue')['default']
     BaseEcharts: typeof import('./src/components/BaseEcharts/index.vue')['default']
     ColSetting: typeof import('./src/components/ZyTable/components/ColSetting.vue')['default']
+    ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElCard: typeof import('element-plus/es')['ElCard']

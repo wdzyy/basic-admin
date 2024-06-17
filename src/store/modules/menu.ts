@@ -7,6 +7,7 @@ import { resolveRoutePath } from '@/utils'
 import apiApp from '@/api/modules/app'
 import menu from '@/menu'
 import type { Menu, Route } from '#/global'
+import type { FavoriteMenus } from '@/layouts/components/Topbar/Toolbar/FavoriteMenu/index.vue'
 
 const useMenuStore = defineStore(
   // 唯一ID
@@ -18,6 +19,20 @@ const useMenuStore = defineStore(
 
     const filesystemMenusRaw = ref<Menu.recordMainRaw[]>([])
     const actived = ref(0)
+
+    /**
+     * 收藏的菜单
+     */
+    const favoriteMenus = ref<FavoriteMenus[]>([])
+
+    function getFavoriteMenus() {
+      return favoriteMenus.value
+    }
+
+    function setFavoriteMenus(data: FavoriteMenus[]) {
+      favoriteMenus.value = data
+      localStorage.setItem('favorite-menus', JSON.stringify(data))
+    }
 
     // 将原始路由转换成导航菜单
     function convertRouteToMenu(routes: Route.recordMainRaw[]): Menu.recordMainRaw[] {
@@ -200,6 +215,7 @@ const useMenuStore = defineStore(
     }
 
     return {
+      favoriteMenus,
       actived,
       allMenus,
       sidebarMenus,
@@ -208,6 +224,8 @@ const useMenuStore = defineStore(
       generateMenusAtFront,
       generateMenusAtBack,
       setActived,
+      getFavoriteMenus,
+      setFavoriteMenus,
     }
   },
 )
