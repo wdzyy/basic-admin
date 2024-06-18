@@ -11,8 +11,3 @@ declare const __SYSTEM_INFO__: {
   }
   lastBuildTime: string
 }
-
-declare module 'china-area-data' {
-  const REGION_DATA: Recordable<any>
-  export default REGION_DATA
-}

@@ -64,7 +64,6 @@ declare module 'vue' {
     PcasCascader: typeof import('./src/components/PcasCascader/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SearchBar: typeof import('./src/components/SearchBar/index.vue')['default']
     SearchForm: typeof import('./src/components/SearchForm/index.vue')['default']
     SearchFormItem: typeof import('./src/components/SearchForm/components/SearchFormItem.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']

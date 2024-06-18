@@ -1,26 +1,13 @@
 <script setup lang="ts">
 import type { CascaderValue } from 'element-plus'
-import {
-  CodeToText,
-  convertTextToCode,
-  provinceAndCityData,
-  provinceAndCityDataPlus,
-  regionData,
-  regionDataPlus,
-} from '@/utils/chinaArea'
 
 defineOptions({
   name: 'ChinaAreaCascader',
 })
 
-const selectedOptions1 = ref(['110000', '110100'])
-const selectedOptions2 = ref(['120000', '120100', '120101'])
-const selectedOptions3 = ref(['130000', ''])
-const selectedOptions4 = ref(['120000', '120100', ''])
-
-function handleChange(value: CascaderValue) {
-  console.log(value)
-}
+const selectedOptions = ref([])
+const format = ref<'code' | 'name' | 'both'>('code')
+const type = ref<'pc' | 'pca' | 'pcas'>('pca')
 </script>
 
 <template>
@@ -33,121 +20,37 @@ function handleChange(value: CascaderValue) {
     <el-row :gutter="24">
       <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
         <div class="flex flex-col items-center justify-center">
-          <span class="text-[var(--el-color-primary)]">
-            1. 二级联动（不带“全部”选项）
-            <el-cascader
-              v-model="selectedOptions1"
-              :options="provinceAndCityData"
-              @change="handleChange"
-            />
-          </span>
+          <el-button-group>
+            <el-button :type="format === 'code' ? 'primary' : ''" @click="format = 'code';selectedOptions = []">
+              值为code
+            </el-button>
+            <el-button :type="format === 'name' ? 'primary' : ''" @click="format = 'name';selectedOptions = []">
+              值为name
+            </el-button>
+            <el-button :type="format === 'both' ? 'primary' : ''" @click="format = 'both';selectedOptions = []">
+              值为code和name
+            </el-button>
+          </el-button-group>
+
+          <el-button-group>
+            <el-button :type="type === 'pc' ? 'primary' : ''" @click="type = 'pc';selectedOptions = []">
+              省市
+            </el-button>
+            <el-button :type="type === 'pca' ? 'primary' : ''" @click="type = 'pca';selectedOptions = []">
+              省市区
+            </el-button>
+            <el-button :type="type === 'pcas' ? 'primary' : ''" @click="type = 'pcas';selectedOptions = []">
+              省市区街道
+            </el-button>
+          </el-button-group>
+          <PcasCascader
+            v-model="selectedOptions"
+            :disabled="false"
+            :type="type"
+            :format="format"
+          />
           <div class="leading-10">
-            <div>绑定值：{{ selectedOptions1 }}</div>
-            <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions1[0]] }},
-              {{ CodeToText[selectedOptions1[1]] }}
-            </div>
-            <div>
-              汉字转区域码：
-              {{
-                convertTextToCode(
-                  CodeToText[selectedOptions1[0]],
-                  CodeToText[selectedOptions1[1]],
-                )
-              }}
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
-        <div class="mt-3 flex flex-col items-center justify-center">
-          <span class="text-[var(--el-color-primary)]">
-            2. 二级联动（带有“全部”选项）
-            <el-cascader
-              v-model="selectedOptions3"
-              :options="provinceAndCityDataPlus"
-              @change="handleChange"
-            />
-          </span>
-          <div class="leading-10">
-            <div>绑定值：{{ selectedOptions3 }}</div>
-            <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions3[0]] }},
-              {{ CodeToText[selectedOptions3[1]] }}
-            </div>
-            <div>
-              汉字转区域码：
-              {{
-                convertTextToCode(
-                  CodeToText[selectedOptions3[0]],
-                  CodeToText[selectedOptions3[1]],
-                )
-              }}
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
-        <div class="mt-3 flex flex-col items-center justify-center">
-          <span class="text-[var(--el-color-primary)]">
-            3. 三级联动（不带“全部”选项）
-            <el-cascader
-              v-model="selectedOptions2"
-              :options="regionData"
-              @change="handleChange"
-            />
-          </span>
-          <div class="leading-10">
-            <div>绑定值：{{ selectedOptions2 }}</div>
-            <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions2[0]] }},
-              {{ CodeToText[selectedOptions2[1]] }},
-              {{ CodeToText[selectedOptions2[2]] }}
-            </div>
-            <div>
-              汉字转区域码：
-              {{
-                convertTextToCode(
-                  CodeToText[selectedOptions2[0]],
-                  CodeToText[selectedOptions2[1]],
-                  CodeToText[selectedOptions2[2]],
-                )
-              }}
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
-        <div class="mt-3 flex flex-col items-center justify-center">
-          <span class="text-[var(--el-color-primary)]">
-            4. 三级联动（带"全部选项"）
-            <el-cascader
-              v-model="selectedOptions4"
-              :options="regionDataPlus"
-              @change="handleChange"
-            />
-          </span>
-          <div class="leading-10">
-            <div>绑定值：{{ selectedOptions4 }}</div>
-            <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions4[0]] }},
-              {{ CodeToText[selectedOptions4[1]] }},
-              {{ CodeToText[selectedOptions4[2]] }}
-            </div>
-            <div>
-              汉字转区域码：
-              {{
-                convertTextToCode(
-                  CodeToText[selectedOptions4[0]],
-                  CodeToText[selectedOptions4[1]],
-                  CodeToText[selectedOptions4[2]],
-                )
-              }}
-            </div>
+            <div>绑定值：{{ selectedOptions }}</div>
           </div>
         </div>
       </el-col>

@@ -34,7 +34,6 @@
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
     "axios": "^1.6.8",
-    "china-area-data": "^5.0.1",
     "dayjs": "^1.11.10",
     "defu": "^6.1.4",
     "disable-devtool": "^0.3.7",

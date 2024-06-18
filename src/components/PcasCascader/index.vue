@@ -9,7 +9,13 @@ defineOptions({
 const props = withDefaults(
   defineProps<{
     disabled?: boolean
+    /**
+     * pc 省市、pca 省市区、pcas 省市区街道
+     */
     type?: 'pc' | 'pca' | 'pcas'
+    /**
+     * 绑定数据的格式化类型
+     */
     format?: 'code' | 'name' | 'both'
   }>(),
   {
