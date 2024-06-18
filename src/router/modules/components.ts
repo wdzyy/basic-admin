@@ -7,7 +7,7 @@ function Layout() {
 const routes: RouteRecordRaw = {
   path: '/components',
   component: Layout,
-  redirect: '/components/basic-table',
+  redirect: '/components/table',
   name: 'Components',
   meta: {
     title: '组件',
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw = {
     {
       path: 'table',
       name: 'Table',
-      redirect: '/components/table/basic',
+      redirect: '/components/table/basic-table',
       meta: {
         title: '表格',
       },
@@ -61,7 +61,7 @@ const routes: RouteRecordRaw = {
     {
       path: 'button',
       name: 'Button',
-      redirect: '/components/button/basic',
+      redirect: '/components/button/basic-button',
       meta: {
         title: '按钮',
       },
@@ -79,7 +79,7 @@ const routes: RouteRecordRaw = {
     {
       path: 'cascader',
       name: 'Cascader',
-      redirect: '/components/china-area-cascader/basic',
+      redirect: '/components/cascader/basic',
       meta: {
         title: '级联',
       },
@@ -97,7 +97,7 @@ const routes: RouteRecordRaw = {
     {
       path: 'text',
       name: 'Text',
-      redirect: '/components/text',
+      redirect: '/components/text/basic',
       meta: {
         title: '文本',
       },
