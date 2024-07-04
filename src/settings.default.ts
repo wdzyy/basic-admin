@@ -4,7 +4,7 @@ import type { RecursiveRequired, Settings } from '#/global'
 
 const globalSettingsDefault: RecursiveRequired<Settings.all> = {
   app: {
-    lightTheme: 'lightTheme',
+    lightTheme: 'greenTheme',
     darkTheme: 'darkTheme',
     colorScheme: 'light',
     enablePermission: false,
