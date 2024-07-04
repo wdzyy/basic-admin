@@ -17,6 +17,14 @@ declare namespace Settings {
      */
     colorScheme?: '' | 'light' | 'dark'
     /**
+     * 明亮主题
+     */
+    lightTheme?: 'lightTheme' | 'greenTheme'
+    /**
+     * 暗黑主题
+     */
+    darkTheme?: 'darkTheme'
+    /**
      * 是否开启权限功能
      * @默认值 `false`
      */

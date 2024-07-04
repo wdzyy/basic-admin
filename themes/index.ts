@@ -44,7 +44,7 @@ export const lightTheme = {
 }
 
 export const greenTheme = {
-  'color-scheme': 'green',
+  'color-scheme': 'light',
   // 内置 UI
   '--ui-primary': hex2rgba('#18A058')!.join(' '),
   '--ui-text': hex2rgba('#fcfcfc')!.join(' '),

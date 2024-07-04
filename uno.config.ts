@@ -10,7 +10,14 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { entriesToCss, toArray } from '@unocss/core'
-import { darkTheme, greenTheme } from './themes'
+import { darkTheme, greenTheme, lightTheme } from './themes'
+import globalSettings from './src/settings'
+
+const themes = {
+  lightTheme,
+  darkTheme,
+  greenTheme,
+}
 
 export default defineConfig<Theme>({
   content: {
@@ -31,8 +38,11 @@ export default defineConfig<Theme>({
     {
       getCSS: () => {
         const returnCss: any = []
+        const lightTheme = themes[globalSettings.app.lightTheme]
+        const darkTheme = themes[globalSettings.app.darkTheme]
+
         // 明亮主题
-        const lightCss = entriesToCss(Object.entries(greenTheme))
+        const lightCss = entriesToCss(Object.entries(lightTheme))
         const lightRoots = toArray([`*,::before,::after`, `::backdrop`])
         returnCss.push(lightRoots.map(root => `${root}{${lightCss}}`).join(''))
         // 暗黑主题
