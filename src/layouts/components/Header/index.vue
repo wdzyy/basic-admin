@@ -33,6 +33,12 @@ function calcMenuItemWidth(menuItem: HTMLElement) {
 
   return menuItem.offsetWidth + marginLeft + marginRight || 0
 }
+function filterNodes(nodes: NodeListOf<ChildNode> | ChildNode[]) {
+  return [...nodes].filter(
+    item => item.nodeName !== '#comment' && (item.nodeName !== '#text' || item.nodeValue),
+  ) as HTMLElement[]
+}
+
 /**
  * 计算菜单截取的下标
  */
@@ -40,16 +46,12 @@ function calcSliceIndex() {
   if (!menuRef.value) {
     return -1
   }
-  // console.log(menuRef.value?.childNodes)
-  const items = Array.from(menuRef.value?.childNodes[1]?.childNodes ?? []).filter(
-    item =>
-      item.nodeName !== '#comment'
-      && (item.nodeName !== '#text' || item.nodeValue),
-  ) as HTMLElement[]
-  const computedMenuStyle = getComputedStyle(menuRef.value!)
-  const paddingLeft = Number.parseInt(computedMenuStyle.paddingLeft, 10)
-  const paddingRight = Number.parseInt(computedMenuStyle.paddingRight, 10)
-  const menuWidth = menuRef.value!.clientWidth - paddingLeft - paddingRight
+  const menuNodes = filterNodes(menuRef.value?.childNodes || [])
+  const items = menuNodes.length > 0 ? filterNodes(menuNodes[0]?.childNodes) : []
+
+  const { paddingLeft, paddingRight } = getComputedStyle(menuRef.value!)
+  const menuWidth = menuRef.value.clientWidth - Number.parseInt(paddingLeft, 10) - Number.parseInt(paddingRight, 10)
+
   let calcWidth = 0
   let sliceIdx = 0
   items.forEach((item, index) => {
