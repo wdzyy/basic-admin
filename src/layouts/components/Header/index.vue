@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { useResizeObserver } from '@vueuse/core'
+import type { UseResizeObserverReturn } from '@vueuse/core'
 import Logo from '../Logo/index.vue'
 import ToolbarRightSide from '../Topbar/Toolbar/rightSide.vue'
+import debounce from './utils/ZDebounce.ts'
 import useMenuStore from '@/store/modules/menu'
 import useSettingsStore from '@/store/modules/settings'
+import type { Menu } from '#/global'
 
 defineOptions({
   name: 'LayoutHeader',
@@ -13,16 +17,87 @@ const menuStore = useMenuStore()
 
 const { switchTo } = useMenu()
 
-const menuRef = ref()
+const moreItemWidth = 100 // 更多菜单的宽度
+const menuRef = ref<HTMLUListElement>() // 菜单容器
+const sliceIndex = ref(-1) // 截取的下标
+const allMenus = ref<Menu.recordMainRaw[]>([]) // 所有菜单
+const moreMenus = ref<Menu.recordMainRaw[]>([]) // 更多菜单
 
-// 顶部模式鼠标滚动
-function handlerMouserScroll(event: WheelEvent) {
-  if (event.deltaY || event.detail !== 0) {
-    menuRef.value.scrollBy({
-      left: (event.deltaY || event.detail) > 0 ? 50 : -50,
+/**
+ * 计算单个菜单item的宽度
+ */
+function calcMenuItemWidth(menuItem: HTMLElement) {
+  const computedStyle = getComputedStyle(menuItem)
+  const marginLeft = Number.parseInt(computedStyle.marginLeft, 10)
+  const marginRight = Number.parseInt(computedStyle.marginRight, 10)
+
+  return menuItem.offsetWidth + marginLeft + marginRight || 0
+}
+/**
+ * 计算菜单截取的下标
+ */
+function calcSliceIndex() {
+  if (!menuRef.value) {
+    return -1
+  }
+  // console.log(menuRef.value?.childNodes)
+  const items = Array.from(menuRef.value?.childNodes[1]?.childNodes ?? []).filter(
+    item =>
+      item.nodeName !== '#comment'
+      && (item.nodeName !== '#text' || item.nodeValue),
+  ) as HTMLElement[]
+  const computedMenuStyle = getComputedStyle(menuRef.value!)
+  const paddingLeft = Number.parseInt(computedMenuStyle.paddingLeft, 10)
+  const paddingRight = Number.parseInt(computedMenuStyle.paddingRight, 10)
+  const menuWidth = menuRef.value!.clientWidth - paddingLeft - paddingRight
+  let calcWidth = 0
+  let sliceIdx = 0
+  items.forEach((item, index) => {
+    calcWidth += calcMenuItemWidth(item)
+    if (calcWidth <= menuWidth - moreItemWidth) {
+      sliceIdx = index + 1
+    }
+  })
+
+  return sliceIdx === items.length ? -1 : sliceIdx
+}
+
+/**
+ * 处理resize事件
+ */
+let isFirstTimeRender = true
+function handleResize() {
+  if (sliceIndex.value === calcSliceIndex()) {
+    return
+  }
+  const callback = () => {
+    sliceIndex.value = -1
+    nextTick(() => {
+      sliceIndex.value = calcSliceIndex()
     })
   }
+  isFirstTimeRender ? callback() : debounce(callback)()
+  isFirstTimeRender = false
 }
+
+/**
+ * 监听菜单宽度变化判断菜单放在所有菜单还是放在更多当中
+ */
+let resizeStopper: UseResizeObserverReturn['stop']
+watchEffect(() => {
+  resizeStopper = useResizeObserver(menuRef, handleResize).stop
+  moreMenus.value = sliceIndex.value === -1 ? [] : menuStore.allMenus.slice(sliceIndex.value)
+  allMenus.value = sliceIndex.value === -1 ? menuStore.allMenus : menuStore.allMenus.slice(0, sliceIndex.value)
+})
+
+onUnmounted(() => {
+  // 卸载监听
+  resizeStopper()
+})
+
+onMounted(() => {
+  allMenus.value = menuStore.allMenus
+})
 </script>
 
 <template>
@@ -30,17 +105,17 @@ function handlerMouserScroll(event: WheelEvent) {
     <header v-if="settingsStore.mode === 'pc' && settingsStore.settings.menu.menuMode === 'head'">
       <div class="header-container">
         <Logo class="title" />
-        <div ref="menuRef" class="menu-container" @wheel.prevent="handlerMouserScroll">
+        <div ref="menuRef" class="menu-container" :style="{ minWidth: `${moreItemWidth}px` }">
           <!-- 顶部模式 -->
           <div class="menu flex of-hidden transition-all">
-            <template v-for="(item, index) in menuStore.allMenus" :key="index">
+            <template v-for="(item, index) in allMenus" :key="index">
               <div
                 class="menu-item relative px-1 py-2 transition-all" :class="{
                   active: index === menuStore.actived,
                 }"
               >
                 <div
-                  v-if="item.children && item.children.length !== 0" class="group menu-item-container h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 px-3 text-[var(--g-header-menu-color)] transition-all hover:(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)])" :class="{
+                  v-if="item.children && item.children.length !== 0" class="group menu-item-container" :class="{
                     'text-[var(--g-header-menu-active-color)]! bg-[var(--g-header-menu-active-bg)]!': index === menuStore.actived,
                   }" :title="typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title" @click="switchTo(index)"
                 >
@@ -53,6 +128,38 @@ function handlerMouserScroll(event: WheelEvent) {
                 </div>
               </div>
             </template>
+            <HDropdown
+              v-show="moreMenus.length > 0"
+              class="menu-item relative px-1 py-2 transition-all"
+              placement="bottom-start"
+            >
+              <div
+                class="group menu-item-container whitespace-nowrap" :class="{
+                  'text-[var(--g-header-menu-active-color)]! bg-[var(--g-header-menu-active-bg)]!': (allMenus.length) <= menuStore.actived,
+                }"
+              >
+                更多
+                <SvgIcon name="i-ep:caret-bottom" />
+              </div>
+              <template #dropdown>
+                <div class="w-200px py-1" border-b="~ solid stone-2 dark:stone-7 last:size-0">
+                  <div v-for="(item, index) in moreMenus" :key="index" class="relative px-2 py-1 transition-all">
+                    <div
+                      class="group menu-item-container h-full w-full flex cursor-pointer items-center gap-1 rounded-2 px-5 py-3 text-14px text-[var(--g-sub-sidebar-menu-color)] transition-all hover:bg-[var(--g-sub-sidebar-menu-hover-bg)] hover:text-[var(--g-sub-sidebar-menu-hover-color)]"
+                      :class="{
+                        'text-[var(--g-header-menu-active-color)]! bg-[var(--g-header-menu-active-bg)]!': (index + allMenus.length) === menuStore.actived,
+                      }"
+                      @click="switchTo(index + allMenus.length)"
+                    >
+                      <SvgIcon v-if="item.meta?.icon" :name="item.meta?.icon" :size="20" class="menu-item-container-icon transition-transform group-hover:scale-120" async />
+                      {{
+                        typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title
+                      }}
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </HDropdown>
           </div>
         </div>
         <ToolbarRightSide />
@@ -135,6 +242,8 @@ header {
               color: var(--g-header-menu-hover-color);
               background-color: var(--g-header-menu-hover-bg);
             }
+
+            @apply h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 px-3 text-[var(--g-header-menu-color)] transition-all hover:(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)]);
           }
 
           &.active .menu-item-container {
