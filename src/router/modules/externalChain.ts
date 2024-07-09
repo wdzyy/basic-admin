@@ -22,11 +22,11 @@ const routes: RouteRecordRaw = {
      * 外部链接
      */
     {
-      path: 'link',
+      path: 'github',
       redirect: '',
-      name: 'Link',
+      name: 'Github',
       meta: {
-        title: '打开新窗口',
+        title: 'github（外链）',
         link: 'https://github.com/wdzyy/basic-admin',
       },
     },
@@ -34,12 +34,24 @@ const routes: RouteRecordRaw = {
      * 内嵌链接
      */
     {
-      path: 'iframe',
+      path: 'vue3',
       redirect: '',
-      name: 'IFrame',
+      name: 'Vue',
       meta: {
-        title: '内嵌iframe',
+        title: 'vue文档（内嵌）',
         iframe: 'https://cn.vuejs.org/',
+      },
+    },
+    /**
+     * 内嵌链接
+     */
+    {
+      path: 'vueUse',
+      redirect: '',
+      name: 'VueUse',
+      meta: {
+        title: 'vueUse文档（内嵌）',
+        iframe: 'https://vueuse.org/',
       },
     },
   ],
