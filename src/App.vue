@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import eruda from 'eruda'
-import VConsole from 'vconsole'
 import hotkeys from 'hotkeys-js'
 import eventBus from './utils/eventBus'
 import Provider from './ui-provider/index.vue'
@@ -53,9 +51,6 @@ onMounted(() => {
     eventBus.emit('global-system-info-toggle')
   })
 })
-
-import.meta.env.VITE_APP_DEBUG_TOOL === 'eruda' && eruda.init()
-import.meta.env.VITE_APP_DEBUG_TOOL === 'vconsole' && new VConsole()
 </script>
 
 <template>
