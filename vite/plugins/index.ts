@@ -16,6 +16,9 @@ import createCompression from './compression'
 import createArchiver from './archiver'
 import createConsole from './console'
 import createBanner from './banner'
+import createViteCdnPlugin from './cdn'
+import configImageminPlugin from './imagemin'
+import createBundleAnalyzer from './bundle-analyzer'
 
 export default function createVitePlugins(viteEnv, isBuild = false) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -42,5 +45,15 @@ export default function createVitePlugins(viteEnv, isBuild = false) {
   vitePlugins.push(createArchiver(viteEnv))
   vitePlugins.push(createConsole())
   vitePlugins.push(createBanner())
+
+  if (viteEnv.VITE_BUILD_CDN === 'true') {
+    vitePlugins.push(createViteCdnPlugin())
+  }
+  if (viteEnv.VITE_IMAGE_COMPRESS === 'true') {
+    vitePlugins.push(configImageminPlugin())
+  }
+  if (viteEnv.VITE_BUILD_ANALYZE === 'true') {
+    vitePlugins.push(createBundleAnalyzer())
+  }
   return vitePlugins
 }
