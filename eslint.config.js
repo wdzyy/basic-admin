@@ -12,7 +12,10 @@ export default antfu(
     rules: {
       'eslint-comments/no-unlimited-disable': 'off',
       'curly': ['error', 'all'],
-      'antfu/consistent-list-newline': 'off',
+      'ts/no-unused-expressions': ['error', {
+        allowShortCircuit: true,
+        allowTernary: true,
+      }],
     },
   },
   {

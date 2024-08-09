@@ -5,6 +5,8 @@ import type { RecursiveRequired, Settings } from '#/global'
 const globalSettingsDefault: RecursiveRequired<Settings.all> = {
   app: {
     colorScheme: 'light',
+    enableMournMode: false,
+    enableColorAmblyopiaMode: false,
     enablePermission: false,
     enableProgress: true,
     enableDynamicTitle: false,
@@ -20,7 +22,7 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
   },
   menu: {
     baseOn: 'frontend',
-    menuMode: 'side',
+    mode: 'side',
     switchMainMenuAndPageJump: false,
     subMenuUniqueOpened: true,
     subMenuCollapse: false,

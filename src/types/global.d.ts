@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordName, RouteRecordRaw } from 'vue-router'
 
 type RecursiveRequired<T> = {
   [P in keyof T]-?: RecursiveRequired<T[P]>
@@ -16,6 +16,16 @@ declare namespace Settings {
      * @可选值 `'dark'` 暗黑模式
      */
     colorScheme?: '' | 'light' | 'dark'
+    /**
+     * 是否开启哀悼模式
+     * @默认值 `false`
+     */
+    enableMournMode?: boolean
+    /**
+     * 是否开启色弱模式
+     * @默认值 `false`
+     */
+    enableColorAmblyopiaMode?: boolean
     /**
      * 是否开启权限功能
      * @默认值 `false`
@@ -76,7 +86,7 @@ declare namespace Settings {
      * @可选值 `'head'` 顶部模式
      * @可选值 `'single'` 侧边栏模式（无主导航）
      */
-    menuMode?: 'side' | 'head' | 'single'
+    mode?: 'side' | 'head' | 'single'
     /**
      * 切换主导航是否跳转页面
      * @默认值 `false`
@@ -284,7 +294,6 @@ declare namespace Tabbar {
   interface recordRaw {
     tabId: string
     fullPath: string
-    routeName?: RouteRecordRaw.name
     title?: string | (() => string)
     icon?: string
     name: string[]
