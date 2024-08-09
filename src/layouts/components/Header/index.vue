@@ -104,7 +104,7 @@ onMounted(() => {
 
 <template>
   <Transition name="header">
-    <header v-if="settingsStore.mode === 'pc' && settingsStore.settings.menu.menuMode === 'head'">
+    <header v-if="settingsStore.mode === 'pc' && settingsStore.settings.menu.mode === 'head'">
       <div class="header-container">
         <Logo class="title" />
         <div ref="menuRef" class="menu-container" :style="{ minWidth: `${moreItemWidth}px` }">
@@ -112,7 +112,7 @@ onMounted(() => {
           <div class="menu flex of-hidden transition-all">
             <template v-for="(item, index) in allMenus" :key="index">
               <div
-                class="menu-item relative px-1 py-2 transition-all" :class="{
+                class="menu-item relative mx-1 px-1 py-2 transition-all" :class="{
                   active: index === menuStore.actived,
                 }"
               >
@@ -122,7 +122,7 @@ onMounted(() => {
                   }" :title="typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title" @click="switchTo(index)"
                 >
                   <div class="inline-flex flex-1 items-center justify-center gap-1">
-                    <SvgIcon v-if="item.meta?.icon" :name="item.meta?.icon" :size="20" class="menu-item-container-icon transition-transform group-hover:scale-120" async />
+                    <SvgIcon v-if="item.meta?.icon" :name="item.meta?.icon" class="menu-item-container-icon transition-transform group-hover-scale-120" />
                     <span class="w-full flex-1 truncate text-sm transition-height transition-opacity transition-width">
                       {{ typeof item.meta?.title === 'function' ? item.meta?.title() : item.meta?.title }}
                     </span>
@@ -147,7 +147,7 @@ onMounted(() => {
                 <div class="w-200px py-1" border-b="~ solid stone-2 dark:stone-7 last:size-0">
                   <div v-for="(item, index) in moreMenus" :key="index" class="relative px-2 py-1 transition-all">
                     <div
-                      class="group menu-item-container h-full w-full flex cursor-pointer items-center gap-1 rounded-2 px-5 py-3 text-14px text-[var(--g-sub-sidebar-menu-color)] transition-all hover:bg-[var(--g-sub-sidebar-menu-hover-bg)] hover:text-[var(--g-sub-sidebar-menu-hover-color)]"
+                      class="group menu-item-container h-full w-full flex cursor-pointer items-center gap-1 rounded-2 px-5 py-3 text-14px text-[var(--g-sub-sidebar-menu-color)] transition-all hover-bg-[var(--g-sub-sidebar-menu-hover-bg)] hover-text-[var(--g-sub-sidebar-menu-hover-color)]"
                       :class="{
                         'text-[var(--g-header-menu-active-color)]! bg-[var(--g-header-menu-active-bg)]!': (index + allMenus.length) === menuStore.actived,
                       }"
@@ -245,7 +245,11 @@ header {
               background-color: var(--g-header-menu-hover-bg);
             }
 
-            @apply h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 px-3 text-[var(--g-header-menu-color)] transition-all hover:(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)]);
+            @apply h-full w-full flex cursor-pointer items-center justify-between gap-1 rounded-2 px-3 text-[var(--g-header-menu-color)] transition-all hover-(bg-[var(--g-header-menu-hover-bg)] text-[var(--g-header-menu-hover-color)]);
+
+            .menu-item-container-icon {
+              font-size: 20px !important;
+            }
           }
 
           &.active .menu-item-container {

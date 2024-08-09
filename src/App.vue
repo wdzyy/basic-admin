@@ -3,14 +3,24 @@ import hotkeys from 'hotkeys-js'
 import eventBus from './utils/eventBus'
 import Provider from './ui-provider/index.vue'
 import useSettingsStore from '@/store/modules/settings'
+import useMenuStore from '@/store/modules/menu'
+
+const route = useRoute()
 
 const settingsStore = useSettingsStore()
+const menuStore = useMenuStore()
 const { auth } = useAuth()
+
+const isAuth = computed(() => {
+  return route.matched.every((item) => {
+    return auth(item.meta.auth ?? '')
+  })
+})
 
 // 侧边栏主导航当前实际宽度
 const mainSidebarActualWidth = computed(() => {
   let actualWidth = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue('--g-main-sidebar-width'))
-  if (settingsStore.settings.menu.menuMode === 'single' || (settingsStore.settings.menu.menuMode === 'head' && settingsStore.mode !== 'mobile')) {
+  if (settingsStore.settings.menu.mode === 'single' || (settingsStore.settings.menu.mode === 'head' && settingsStore.mode !== 'mobile')) {
     actualWidth = 0
   }
   return `${actualWidth}px`
@@ -21,6 +31,9 @@ const subSidebarActualWidth = computed(() => {
   let actualWidth = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue('--g-sub-sidebar-width'))
   if (settingsStore.settings.menu.subMenuCollapse && settingsStore.mode !== 'mobile') {
     actualWidth = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue('--g-sub-sidebar-collapse-width'))
+  }
+  if (menuStore.sidebarMenus.every(item => item.meta?.menu === false)) {
+    actualWidth = 0
   }
   return `${actualWidth}px`
 })
@@ -56,13 +69,13 @@ onMounted(() => {
 <template>
   <Provider>
     <RouterView
-      v-slot="{ Component, route }"
+      v-slot="{ Component }"
       :style="{
         '--g-main-sidebar-actual-width': mainSidebarActualWidth,
         '--g-sub-sidebar-actual-width': subSidebarActualWidth,
       }"
     >
-      <component :is="Component" v-if="auth(route.meta.auth ?? '')" />
+      <component :is="Component" v-if="isAuth" />
       <NotAllowed v-else />
     </RouterView>
     <SystemInfo />

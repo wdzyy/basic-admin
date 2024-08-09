@@ -59,11 +59,9 @@ function tabbarScrollTip() {
   }
 }
 function handlerMouserScroll(event: WheelEvent) {
-  if (event.deltaY || event.detail !== 0) {
-    tabsRef.value.scrollBy({
-      left: (event.deltaY || event.detail) > 0 ? 50 : -50,
-    })
-  }
+  tabsRef.value.scrollBy({
+    left: event.deltaY || event.detail,
+  })
 }
 function scrollTo(offsetLeft: number) {
   tabsRef.value.scrollTo({
@@ -78,7 +76,7 @@ function onTabbarContextmenu(event: MouseEvent, routeItem: Tabbar.recordRaw) {
     y: event.y,
     zIndex: 1050,
     iconFontClass: '',
-    customClass: 'contextmenu-custom',
+    customClass: 'tabbar-contextmenu',
     items: [
       {
         label: '重新加载',
@@ -182,7 +180,7 @@ onMounted(() => {
   tabsDrop()
 })
 onUnmounted(() => {
-  hotkeys.unbind('alt+q,alt+e,alt+w,alt+1,alt+2,alt+3,alt+4,alt+5,alt+6,alt+7,alt+8,alt+9,alt+0')
+  hotkeys.unbind('alt+left,alt+right,alt+w,alt+1,alt+2,alt+3,alt+4,alt+5,alt+6,alt+7,alt+8,alt+9,alt+0')
 })
 </script>
 
@@ -203,8 +201,8 @@ onUnmounted(() => {
               <SvgIcon v-if="settingsStore.settings.tabbar.enableIcon && element.icon" :name="element.icon" class="icon" />
               {{ typeof element?.title === 'function' ? element.title() : element.title }}
             </div>
-            <div v-if="tabbarStore.list.length > 1" class="action-icon">
-              <SvgIcon name="i-ri:close-fill" @click.stop="tabbar.closeById(element.tabId)" />
+            <div v-if="tabbarStore.list.length > 1" class="action-icon" @click.stop="tabbar.closeById(element.tabId)">
+              <SvgIcon name="i-ri:close-fill" />
             </div>
             <div v-show="keys.alt && index < 9" class="hotkey-number">
               {{ index + 1 }}
@@ -217,11 +215,11 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-.mx-menu-ghost-host {
+.tabbar-contextmenu {
   z-index: 1000;
 
   .mx-context-menu {
-    --at-apply: fixed ring-1 ring-stone-2 dark:ring-stone-7 shadow-2xl;
+    --at-apply: fixed ring-1 ring-stone-2 dark-ring-stone-7 shadow-2xl;
 
     background-color: var(--g-container-bg);
 
@@ -229,7 +227,7 @@ onUnmounted(() => {
       --at-apply: transition-background-color;
 
       &:not(.disabled):hover {
-        --at-apply: cursor-pointer bg-stone-1 dark:bg-stone-9;
+        --at-apply: cursor-pointer bg-stone-1 dark-bg-stone-9;
       }
 
       span {
@@ -250,7 +248,7 @@ onUnmounted(() => {
       background-color: var(--g-container-bg);
 
       &::after {
-        --at-apply: bg-stone-2 dark:bg-stone-7;
+        --at-apply: bg-stone-2 dark-bg-stone-7;
       }
     }
   }
@@ -439,14 +437,14 @@ onUnmounted(() => {
             transform: translateY(-50%);
 
             &:hover {
-              --at-apply: ring-1 ring-stone-3 dark:ring-stone-7;
+              --at-apply: ring-1 ring-stone-3 dark-ring-stone-7;
 
               background-color: var(--g-bg);
             }
           }
 
           .hotkey-number {
-            --at-apply: ring-1 ring-stone-3 dark:ring-stone-7;
+            --at-apply: ring-1 ring-stone-3 dark-ring-stone-7;
 
             position: absolute;
             top: 50%;

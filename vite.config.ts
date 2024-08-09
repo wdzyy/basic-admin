@@ -17,8 +17,7 @@ export default async ({ mode, command }) => {
     }
   })
   return defineConfig({
-    base: './',
-    // 开发服务器选项 https://cn.vitejs.dev/config/#server-options
+    // 开发服务器选项 https://cn.vitejs.dev/config/server-options
     server: {
       open: true,
       port: 9000,

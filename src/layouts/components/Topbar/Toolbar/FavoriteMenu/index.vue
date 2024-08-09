@@ -66,7 +66,7 @@ onMounted(() => {
         <Grid v-show="menuStore.favoriteMenus.length > 0" ref="gridRef" :gap="[20, 0]" :cols="2">
           <GridItem
             v-for="(item) in menuStore.favoriteMenus"
-            :key="item.path" class="mb-12px cursor-pointer border-1 border-color-gray-200 rounded-4px border-style-solid p-6px hover:bg-[var(--g-bg)]"
+            :key="item.path" class="mb-12px cursor-pointer border-1 border-color-gray-200 rounded-4px border-style-solid p-6px hover-bg-[var(--g-bg)]"
             @click="routerGo(item.path)"
           >
             <div

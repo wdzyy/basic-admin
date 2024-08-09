@@ -26,7 +26,7 @@ function unCollaspe() {
 
 <template>
   <div
-    class="page-main relative m-[var(--g-main-content-margin)] flex flex-col bg-[var(--g-container-bg)] transition-background-color-300" :class="{
+    class="page-main relative flex flex-col bg-[var(--g-container-bg)] transition-background-color-300" :class="{
       'of-hidden': isCollaspe,
     }" :style="{
       height: isCollaspe ? height : '',
@@ -41,7 +41,7 @@ function unCollaspe() {
       <slot />
     </div>
     <div v-if="isCollaspe" class="collaspe absolute bottom-0 w-full cursor-pointer from-transparent to-[var(--g-container-bg)] bg-gradient-to-b pb-2 pt-10 text-center" @click="unCollaspe">
-      <SvgIcon name="i-ep:arrow-down" class="text-xl op-30 transition-opacity hover:op-100" />
+      <SvgIcon name="i-ep:arrow-down" class="text-xl op-30 transition-opacity hover-op-100" />
     </div>
   </div>
 </template>

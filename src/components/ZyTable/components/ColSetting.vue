@@ -22,8 +22,8 @@ function onMove(e: any) {
 async function fixColumnChange(item: any, fixVal: any) {
   await nextTick()
   item.fixed = fixVal
-  const leftFixeds = data.value.filter(it => it.fixed === 'left')
-  const rightFixeds = data.value.filter(it => it.fixed === 'right')
+  const leftFixeds = data.value.filter((it: ColumnProps) => it.fixed === 'left')
+  const rightFixeds = data.value.filter((it: ColumnProps) => it.fixed === 'right')
   const noFixeds = data.value.filter((it: any) => !['right', 'left'].includes(it.fixed))
   data.value = [...leftFixeds, ...noFixeds, ...rightFixeds]
 }
@@ -36,7 +36,7 @@ async function fixColumnChange(item: any, fixVal: any) {
         <div>
           <span class="mover mr-16px cursor-move">
             <span :class="element.fixed ? 'opacity-0' : 'opacity-100'">
-              <SvgIcon name="tabler:arrows-move" class="icon hover:text-[--g-primary]" />
+              <SvgIcon name="tabler:arrows-move" class="icon hover-text-[--g-primary]" />
             </span>
           </span>
           <el-checkbox v-model="element.isShow">
@@ -49,10 +49,10 @@ async function fixColumnChange(item: any, fixVal: any) {
           </span>
           <span v-else>
             <span class="cursor-pointer" @click="fixColumnChange(element, 'left')">
-              <SvgIcon name="mingcute:arrow-to-left-fill" class="icon mr-5px hover:text-[--g-primary]" />
+              <SvgIcon name="mingcute:arrow-to-left-fill" class="icon mr-5px hover-text-[--g-primary]" />
             </span>
             <span class="cursor-pointer" @click="fixColumnChange(element, 'right')">
-              <SvgIcon name="mingcute:arrow-to-right-fill" class="icon hover:text-[--g-primary]" />
+              <SvgIcon name="mingcute:arrow-to-right-fill" class="icon hover-text-[--g-primary]" />
             </span>
           </span>
         </span>

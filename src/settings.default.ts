@@ -7,6 +7,8 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
     lightTheme: 'greenTheme',
     darkTheme: 'darkTheme',
     colorScheme: 'light',
+    enableMournMode: false,
+    enableColorAmblyopiaMode: false,
     enablePermission: false,
     enableProgress: true,
     enableDynamicTitle: false,
@@ -22,7 +24,7 @@ const globalSettingsDefault: RecursiveRequired<Settings.all> = {
   },
   menu: {
     baseOn: 'frontend',
-    menuMode: 'head',
+    mode: 'head',
     switchMainMenuAndPageJump: false,
     subMenuUniqueOpened: true,
     subMenuCollapse: false,
