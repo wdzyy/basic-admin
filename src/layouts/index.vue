@@ -112,7 +112,7 @@ const enableAppSetting = import.meta.env.VITE_APP_SETTING === 'true'
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 [data-mode="mobile"] {
   .sidebar-container {
     transform: translateX(calc((var(--g-main-sidebar-width) + var(--g-sub-sidebar-width)) * -1));
@@ -244,7 +244,7 @@ header:not(.header-leave-active) + .wrapper {
 }
 
 .app-setting {
-  --at-apply: text-white dark-text-dark bg-ui-primary;
+  --uno: text-white dark-text-dark bg-ui-primary;
 
   position: fixed;
   top: calc(50% + 250px);
@@ -275,7 +275,7 @@ header:not(.header-leave-active) + .wrapper {
   }
 }
 
-// 主内容区动画
+/* 主内容区动画 */
 .slide-right-enter-active {
   transition: 0.2s;
 }

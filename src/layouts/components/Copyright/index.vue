@@ -21,19 +21,19 @@ const settingsStore = useSettingsStore()
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .copyright {
-  --at-apply: flex items-center justify-center flex-wrap text-sm text-stone-5;
+  --uno: flex items-center justify-center flex-wrap text-sm text-stone-5;
 
   padding-bottom: var(--g-main-content-padding);
 
   span,
   a {
-    --at-apply: px-1;
+    --uno: px-1;
   }
 
   a {
-    --at-apply: text-center no-underline text-stone-5 hover-text-dark dark-hover-text-light transition;
+    --uno: text-center no-underline text-stone-5 hover-text-dark dark-hover-text-light transition;
   }
 }
 </style>
