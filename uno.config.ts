@@ -10,6 +10,7 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { entriesToCss, toArray } from '@unocss/core'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { darkTheme, greenTheme, lightTheme } from './themes'
 import globalSettings from './src/settings'
 
@@ -83,6 +84,7 @@ export default defineConfig<Theme>({
       },
     }),
     presetTypography(),
+    presetScrollbar(),
   ],
   transformers: [
     transformerDirectives(),

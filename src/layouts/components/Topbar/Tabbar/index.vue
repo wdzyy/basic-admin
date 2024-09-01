@@ -186,7 +186,7 @@ onUnmounted(() => {
 
 <template>
   <div class="tabbar-container">
-    <div ref="tabsRef" class="tabs" @wheel.prevent="handlerMouserScroll">
+    <div ref="tabsRef" class="tabs scrollbar-none" @wheel.prevent="handlerMouserScroll">
       <TransitionGroup ref="tabContainerRef" name="tabbar" tag="div" class="tab-container">
         <div
           v-for="(element, index) in tabbarStore.list" :key="element.tabId"
@@ -267,14 +267,6 @@ onUnmounted(() => {
     left: 0;
     overflow-y: hidden;
     white-space: nowrap;
-
-    /* firefox隐藏滚动条 */
-    scrollbar-width: none;
-
-    /* chrome隐藏滚动条 */
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     .tab-container {
       display: inline-block;

@@ -107,7 +107,7 @@ onMounted(() => {
     <header v-if="settingsStore.mode === 'pc' && settingsStore.settings.menu.mode === 'head'">
       <div class="header-container">
         <Logo class="title" />
-        <div ref="menuRef" class="menu-container" :style="{ minWidth: `${moreItemWidth}px` }">
+        <div ref="menuRef" class="menu-container scrollbar-none" :style="{ minWidth: `${moreItemWidth}px` }">
           <!-- 顶部模式 -->
           <div class="menu flex of-hidden transition-all">
             <template v-for="(item, index) in allMenus" :key="index">
