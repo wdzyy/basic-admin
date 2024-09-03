@@ -100,6 +100,10 @@ body {
   box-sizing: inherit;
 }
 
+#app {
+  height: 100%;
+}
+
 ul,
 li {
   padding: 0;
