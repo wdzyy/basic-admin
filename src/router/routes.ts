@@ -1,13 +1,13 @@
-import { setupLayouts } from 'virtual:meta-layouts'
-import generatedRoutes from 'virtual:generated-pages'
 import type { RouteRecordRaw } from 'vue-router'
+import generatedRoutes from 'virtual:generated-pages'
+import { setupLayouts } from 'virtual:meta-layouts'
 import MultilevelMenuExample from './modules/multilevel.menu.example'
 import ExternalChain from './modules/externalChain'
 import Components from './modules/components'
 import Echarts from './modules/echarts'
 import Basic from './modules/basic'
-import type { Route } from '#/global'
 import useSettingsStore from '@/store/modules/settings'
+import type { Route } from '#/global'
 
 // 固定路由（默认路由）
 const constantRoutes: RouteRecordRaw[] = [
@@ -111,9 +111,9 @@ const asyncRoutesByFilesystem = setupLayouts(generatedRoutes.filter((item) => {
 }))
 
 export {
-  constantRoutes,
-  systemRoutes,
   asyncRoutes,
-  constantRoutesByFilesystem,
   asyncRoutesByFilesystem,
+  constantRoutes,
+  constantRoutesByFilesystem,
+  systemRoutes,
 }

@@ -5,7 +5,6 @@ import 'tippy.js/dist/tippy.css'
 import 'tippy.js/themes/light.css'
 
 import FloatingVue from 'floating-vue'
-import 'floating-vue/dist/style.css'
 
 import Message from 'vue-m-message'
 import 'vue-m-message/dist/style.css'
@@ -17,8 +16,11 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import type { Directive } from 'vue'
 import App from './App.vue'
-import pinia from './store'
+
 import router from './router'
+import pinia from './store'
+
+import 'floating-vue/dist/style.css'
 
 // 自定义指令
 import directive from '@/utils/directive'

@@ -1,6 +1,6 @@
-import useSettingsStore from './settings'
-import useRouteStore from './route'
 import useMenuStore from './menu'
+import useRouteStore from './route'
+import useSettingsStore from './settings'
 import router from '@/router'
 import apiUser from '@/api/modules/user'
 

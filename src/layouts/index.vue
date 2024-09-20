@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import hotkeys from 'hotkeys-js'
+import AppSetting from './components/AppSetting/index.vue'
+import BackTop from './components/BackTop/index.vue'
+import Copyright from './components/Copyright/index.vue'
 import Header from './components/Header/index.vue'
+import HotkeysIntro from './components/HotkeysIntro/index.vue'
 import MainSidebar from './components/MainSidebar/index.vue'
+import Search from './components/Search/index.vue'
 import SubSidebar from './components/SubSidebar/index.vue'
 import Topbar from './components/Topbar/index.vue'
-import Search from './components/Search/index.vue'
-import HotkeysIntro from './components/HotkeysIntro/index.vue'
-import AppSetting from './components/AppSetting/index.vue'
 import LinkView from './components/views/link.vue'
 import IFrameView from './components/views/iframe.vue'
-import Copyright from './components/Copyright/index.vue'
-import BackTop from './components/BackTop/index.vue'
-import useSettingsStore from '@/store/modules/settings'
-import useKeepAliveStore from '@/store/modules/keepAlive'
-import useMenuStore from '@/store/modules/menu'
 import eventBus from '@/utils/eventBus'
+import useSettingsStore from '@/store/modules/settings'
+import useMenuStore from '@/store/modules/menu'
+import useKeepAliveStore from '@/store/modules/keepAlive'
 
 defineOptions({
   name: 'Layout',
