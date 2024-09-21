@@ -1,27 +1,29 @@
-import type { PluginOption } from 'vite'
+import process from 'node:process'
+import vueLegacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueLegacy from '@vitejs/plugin-legacy'
+import { loadEnv, type PluginOption } from 'vite'
 import appInfo from './app-info'
 
-import createDevtools from './devtools'
-import createAutoImport from './auto-import'
-import createComponents from './components'
-import createUnocss from './unocss'
-import createSvgIcon from './svg-icon'
-import createMock from './mock'
-import createLayouts from './layouts'
-import createPages from './pages'
-import createCompression from './compression'
 import createArchiver from './archiver'
-import createConsole from './console'
+import createAutoImport from './auto-import'
 import createBanner from './banner'
-import createViteCdnPlugin from './cdn'
-import configImageminPlugin from './imagemin'
 import createBundleAnalyzer from './bundle-analyzer'
+import createViteCdnPlugin from './cdn'
+import createComponents from './components'
+import createCompression from './compression'
+import createConsole from './console'
+import createDevtools from './devtools'
+import configImageminPlugin from './imagemin'
+import createLayouts from './layouts'
+import createMock from './mock'
+import createPages from './pages'
+import createSvgIcon from './svg-icon'
+import createUnocss from './unocss'
 import createAppLoading from './vite-plugin-app-loading'
 
-export default function createVitePlugins(viteEnv, isBuild = false) {
+export default function createVitePlugins(mode: string, isBuild = false) {
+  const viteEnv = loadEnv(mode, process.cwd())
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     appInfo(),
     vue(),

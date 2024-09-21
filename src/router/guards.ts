@@ -1,15 +1,15 @@
-import type { RouteRecordRaw, Router } from 'vue-router'
-import { useNProgress } from '@vueuse/integrations/useNProgress'
-import { asyncRoutes, asyncRoutesByFilesystem } from './routes'
+import type { Router, RouteRecordRaw } from 'vue-router'
 import useKeepAliveStore from '@/store/modules/keepAlive'
 import useMenuStore from '@/store/modules/menu'
 import useRouteStore from '@/store/modules/route'
 import useSettingsStore from '@/store/modules/settings'
 import useUserStore from '@/store/modules/user'
+import { useNProgress } from '@vueuse/integrations/useNProgress'
+import { asyncRoutes, asyncRoutesByFilesystem } from './routes'
 import '@/assets/styles/nprogress.css'
 
 function setupRoutes(router: Router) {
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach(async (to, _from, next) => {
     const settingsStore = useSettingsStore()
     const userStore = useUserStore()
     const routeStore = useRouteStore()
@@ -110,7 +110,7 @@ function setupRoutes(router: Router) {
 // 进度条
 function setupProgress(router: Router) {
   const { isLoading } = useNProgress()
-  router.beforeEach((to, from, next) => {
+  router.beforeEach((_to, _from, next) => {
     const settingsStore = useSettingsStore()
     if (settingsStore.settings.app.enableProgress) {
       isLoading.value = true
