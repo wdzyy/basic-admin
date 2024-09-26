@@ -1,6 +1,6 @@
 <script setup lang="tsx">
-import { CirclePlus, Delete, Download, EditPen, Refresh, Upload, View } from '@element-plus/icons-vue'
 import type { ColumnProps, HeaderRenderScope, ZyTableInstance } from '@/components/ZyTable/interface'
+import { CirclePlus, Delete, EditPen } from '@element-plus/icons-vue'
 
 // ZyTable 实例
 const zyTable = ref<ZyTableInstance>()
@@ -172,7 +172,8 @@ const tableData = ref([
     createTime: '2019-01-04 16:08:43',
     status: 0,
     avatar: 'https://i.imgtg.com/2023/01/16/QR57a.jpg',
-  }, {
+  },
+  {
     id: '425910281113145186',
     username: '高明',
     gender: 2,
@@ -331,7 +332,8 @@ const tableData = ref([
     createTime: '2019-01-04 16:08:43',
     status: 0,
     avatar: 'https://i.imgtg.com/2023/01/16/QR57a.jpg',
-  }, {
+  },
+  {
     id: '425910281113145186',
     username: '高明',
     gender: 2,
@@ -490,7 +492,8 @@ const tableData = ref([
     createTime: '2019-01-04 16:08:43',
     status: 0,
     avatar: 'https://i.imgtg.com/2023/01/16/QR57a.jpg',
-  }, {
+  },
+  {
     id: '425910281113145186',
     username: '高明',
     gender: 2,

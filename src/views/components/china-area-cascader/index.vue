@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { CascaderValue } from 'element-plus'
-
 defineOptions({
   name: 'ChinaAreaCascader',
 })

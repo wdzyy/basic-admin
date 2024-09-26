@@ -117,6 +117,12 @@ importers:
       '@stylistic/stylelint-config':
         specifier: ^2.0.0
         version: 2.0.0(stylelint@16.9.0(typescript@5.6.2))
+      '@types/imagemin-mozjpeg':
+        specifier: ^8.0.4
+        version: 8.0.4
+      '@types/imagemin-webp':
+        specifier: ^7.0.3
+        version: 7.0.3
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
@@ -264,6 +270,9 @@ importers:
       vite-plugin-app-loading:
         specifier: ^0.3.0
         version: 0.3.0
+      vite-plugin-archiver:
+        specifier: ^0.1.1
+        version: 0.1.1
       vite-plugin-banner:
         specifier: ^0.8.0
         version: 0.8.0
@@ -1818,6 +1827,15 @@ packages:
 
   '@types/fined@1.1.5':
     resolution: {integrity: sha512-2N93vadEGDFhASTIRbizbl4bNqpMOId5zZfj6hHqYZfEzEfO9onnU4Im8xvzo8uudySDveDHBOOSlTWf38ErfQ==}
+
+  '@types/imagemin-mozjpeg@8.0.4':
+    resolution: {integrity: sha512-ZCAxV8SYJB8ehwHpnbRpHjg5Wc4HcyuAMiDhXbkgC7gujDoOTyHO3dhDkUtZ1oK1DLBRZapqG9etdLVhUml7yQ==}
+
+  '@types/imagemin-webp@7.0.3':
+    resolution: {integrity: sha512-C2/EMohS4bzsvY5VJvdzHFdcfmnZoui54DmM/9bFtK57/CgGmKkc+p6n49euPGmMFDDvwm4yVl60nwxcZOmH5A==}
+
+  '@types/imagemin@9.0.0':
+    resolution: {integrity: sha512-4IaT+BdPUAFf/AAy3XlFAbqGk4RawhdidxWO5XTe+PJAYAr4d7m2FHiqyEPXbDpwS+IaLIJq5AIjLE9HcwMGBg==}
 
   '@types/inquirer@9.0.7':
     resolution: {integrity: sha512-Q0zyBupO6NxGRZut/JdmqYKOnN95Eg5V8Csg3PGKkP+FnvsUZx1jAyK7fztIszxxMuoBA6E3KXWvdZVXIpx60g==}
@@ -3688,6 +3706,10 @@ packages:
   filenamify@2.1.0:
     resolution: {integrity: sha512-ICw7NTT6RsDp2rnYKVd8Fu4cr6ITzGy3+u4vUujPkabyaz+03F24NWEX7fs5fp+kBonlaqPH8fAO2NM+SXt/JA==}
     engines: {node: '>=4'}
+
+  filesize@10.1.6:
+    resolution: {integrity: sha512-sJslQKU2uM33qH5nqewAwVB2QgR6w1aMNsYUp3aN5rMRyXEwJGmZvaWzeJFNTOXWlHQyBFCWrdj3fV/fsTOX8w==}
+    engines: {node: '>= 10.4.0'}
 
   fill-range@4.0.0:
     resolution: {integrity: sha512-VcpLTWqWDiTerugjj8e3+esbg+skS3M9e54UuR3iCeIDMXCLTsAH8hTSzDQU/X6/6t3eYkOKoZSef2PlU6U1XQ==}
@@ -6793,6 +6815,9 @@ packages:
   vite-plugin-app-loading@0.3.0:
     resolution: {integrity: sha512-FJR40HCZ2CePVf9lJa+gDLi7YBB2V4eBeDeQp2fd3TBJr24oCHn4twhvNNYkGuQoROUhTdfZKX49JKVDYmpFYA==}
 
+  vite-plugin-archiver@0.1.1:
+    resolution: {integrity: sha512-d+W6c02OTU+GjlMJ3NXlMaDQazR653l7Ni7HLF6NfI795A4uVlaiDoh6XDaqFnWG+omnD2cK/DMhj/Nh9HYtdA==}
+
   vite-plugin-banner@0.8.0:
     resolution: {integrity: sha512-JpDWDYxtrsytuvUOJCgJcTkBb6XM8yPOidjRtB6F5SW1JSzDd/Y+PD/44wR6ovWKXhSUiyDRqPvx7mMf8+8ELg==}
 
@@ -8581,6 +8606,18 @@ snapshots:
   '@types/estree@1.0.6': {}
 
   '@types/fined@1.1.5': {}
+
+  '@types/imagemin-mozjpeg@8.0.4':
+    dependencies:
+      '@types/imagemin': 9.0.0
+
+  '@types/imagemin-webp@7.0.3':
+    dependencies:
+      '@types/imagemin': 9.0.0
+
+  '@types/imagemin@9.0.0':
+    dependencies:
+      '@types/node': 22.1.0
 
   '@types/inquirer@9.0.7':
     dependencies:
@@ -10945,6 +10982,8 @@ snapshots:
       filename-reserved-regex: 2.0.0
       strip-outer: 1.0.1
       trim-repeated: 1.0.0
+
+  filesize@10.1.6: {}
 
   fill-range@4.0.0:
     dependencies:
@@ -13373,7 +13412,7 @@ snapshots:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.7
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   scslre@0.3.0:
@@ -14368,6 +14407,13 @@ snapshots:
       vite: 5.4.8(@types/node@22.1.0)(sass-embedded@1.77.8)(sass@1.77.8)(terser@5.31.5)
 
   vite-plugin-app-loading@0.3.0: {}
+
+  vite-plugin-archiver@0.1.1:
+    dependencies:
+      archiver: 7.0.1
+      dayjs: 1.11.13
+      filesize: 10.1.6
+      open: 10.1.0
 
   vite-plugin-banner@0.8.0: {}
 

@@ -73,7 +73,7 @@ watch(filterText, (val) => {
 })
 
 // 过滤
-function filterNode(value: string, data: { [key: string]: any }, node: any) {
+function filterNode(value: string, node: any) {
   if (!value) {
     return true
   }
