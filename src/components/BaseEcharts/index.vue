@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { nextTick, onMounted, shallowRef, watch } from 'vue'
 import { type EChartsCoreOption, useEcharts } from '@/utils/composables/useEcharts'
+import { nextTick, onMounted, shallowRef, watch } from 'vue'
 
 interface Props {
   options: EChartsCoreOption

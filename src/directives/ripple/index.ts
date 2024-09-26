@@ -1,6 +1,6 @@
-import './index.scss'
-import isObject from 'lodash-es/isObject'
 import type { Directive, DirectiveBinding } from 'vue'
+import isObject from 'lodash-es/isObject'
+import './index.scss'
 
 interface RippleOptions {
   class?: string
@@ -22,9 +22,7 @@ function transform(el: HTMLElement, value: string) {
   el.style.webkitTransform = value
 }
 
-function calculate(e: PointerEvent,
-  el: HTMLElement,
-  value: RippleOptions = {}) {
+function calculate(e: PointerEvent, el: HTMLElement, value: RippleOptions = {}) {
   const offset = el.getBoundingClientRect()
 
   // 获取点击位置距离 el 的垂直和水平距离

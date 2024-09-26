@@ -26,11 +26,7 @@ interface StateProps {
  * @param {boolean} isPageable 是否有分页 (非必传，默认为true)
  * @param {Function} dataCallBack 对后台返回的数据进行处理的方法 (非必传)
  */
-export function useTable(api?: (params: any) => Promise<any>,
-  initParam: object = {},
-  isPageable: boolean = true,
-  dataCallBack?: (data: any) => any,
-  requestError?: (error: any) => void) {
+export function useTable(api?: (params: any) => Promise<any>, initParam: object = {}, isPageable: boolean = true, dataCallBack?: (data: any) => any, requestError?: (error: any) => void) {
   const state = reactive<StateProps>({
     // 表格数据
     tableData: [],

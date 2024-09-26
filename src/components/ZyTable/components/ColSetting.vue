@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import vueDraggable from 'vuedraggable'
 import type { ColumnProps } from '../interface'
+import vueDraggable from 'vuedraggable'
 
 defineOptions({ name: 'ColSetting' })
 const props = defineProps<{ colSetting: ColumnProps[] }>()

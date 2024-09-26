@@ -1,7 +1,7 @@
-import type { ComponentPublicInstance, Ref, VNode } from 'vue'
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import type { BreakPoint, Responsive } from '@/components/Grid/interface'
 import type ZyTable from '@/components/ZyTable/index.vue'
+import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
+import type { ComponentPublicInstance, Ref, VNode } from 'vue'
 
 export interface EnumProps {
   label?: string // 选项框显示的文字

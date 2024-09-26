@@ -1,6 +1,6 @@
 <script setup lang="ts" name="TreeFilter">
-import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { ElTree } from 'element-plus'
+import { nextTick, onBeforeMount, ref, watch } from 'vue'
 
 // 接收父组件参数并设置默认值
 interface TreeFilterProps {

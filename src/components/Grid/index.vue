@@ -3,6 +3,7 @@ import type {
   VNode,
   VNodeArrayChildren,
 } from 'vue'
+import type { BreakPoint } from './interface/index'
 import {
   computed,
   onActivated,
@@ -15,7 +16,6 @@ import {
   useSlots,
   watch,
 } from 'vue'
-import type { BreakPoint } from './interface/index'
 
 interface Props {
   cols?: number | Record<BreakPoint, number>
@@ -133,7 +133,7 @@ function findIndex() {
     }
   }
   catch (e) {
-    // console.warn(e);
+    console.warn(e)
   }
 }
 

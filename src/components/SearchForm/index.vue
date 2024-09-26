@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { ArrowDown, ArrowUp, Delete, Search } from '@element-plus/icons-vue'
-import SearchFormItem from './components/SearchFormItem.vue'
-import type { ColumnProps } from '@/components/ZyTable/interface'
 import type { BreakPoint } from '@/components/Grid/interface'
-import Grid from '@/components/Grid/index.vue'
+import type { ColumnProps } from '@/components/ZyTable/interface'
 import GridItem from '@/components/Grid/components/GridItem.vue'
+import Grid from '@/components/Grid/index.vue'
+import { ArrowDown, ArrowUp, Delete, Search } from '@element-plus/icons-vue'
+import { computed, ref } from 'vue'
+import SearchFormItem from './components/SearchFormItem.vue'
 
 interface ProTableProps {
   columns?: ColumnProps[] // 搜索配置列

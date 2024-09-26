@@ -1,10 +1,10 @@
-import type { RouteRecordRaw } from 'vue-router'
-import { cloneDeep } from 'lodash-es'
-import useSettingsStore from './settings'
 import type { Route } from '#/global'
+import type { RouteRecordRaw } from 'vue-router'
 import apiApp from '@/api/modules/app'
 import { systemRoutes } from '@/router/routes'
 import { resolveRoutePath } from '@/utils'
+import { cloneDeep } from 'lodash-es'
+import useSettingsStore from './settings'
 
 const useRouteStore = defineStore(
   // 唯一ID

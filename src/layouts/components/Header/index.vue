@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useResizeObserver } from '@vueuse/core'
+import type { Menu } from '#/global'
 import type { UseResizeObserverReturn } from '@vueuse/core'
+import useMenuStore from '@/store/modules/menu'
+import useSettingsStore from '@/store/modules/settings'
+import { useResizeObserver } from '@vueuse/core'
 import Logo from '../Logo/index.vue'
 import ToolbarRightSide from '../Topbar/Toolbar/rightSide.vue'
 import debounce from './utils/ZDebounce.ts'
-import useMenuStore from '@/store/modules/menu'
-import useSettingsStore from '@/store/modules/settings'
-import type { Menu } from '#/global'
 
 defineOptions({
   name: 'LayoutHeader',

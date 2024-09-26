@@ -1,24 +1,24 @@
+import type { Directive } from 'vue'
 import DisableDevtool from 'disable-devtool'
-import '@/utils/system.copyright'
 
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/themes/light.css'
-
+import ElementPlus from 'element-plus'
 import FloatingVue from 'floating-vue'
 
 import Message from 'vue-m-message'
-import 'vue-m-message/dist/style.css'
 
+import App from './App.vue'
+import router from './router'
+
+import pinia from './store'
+import '@/utils/system.copyright'
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/themes/light.css'
+
+import 'vue-m-message/dist/style.css'
 import 'overlayscrollbars/overlayscrollbars.css'
-import ElementPlus from 'element-plus'
+
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
-
-import type { Directive } from 'vue'
-import App from './App.vue'
-
-import router from './router'
-import pinia from './store'
 
 import 'floating-vue/dist/style.css'
 

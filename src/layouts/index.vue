@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import useKeepAliveStore from '@/store/modules/keepAlive'
+import useMenuStore from '@/store/modules/menu'
+import useSettingsStore from '@/store/modules/settings'
+import eventBus from '@/utils/eventBus'
 import hotkeys from 'hotkeys-js'
 import AppSetting from './components/AppSetting/index.vue'
 import BackTop from './components/BackTop/index.vue'
@@ -9,12 +13,8 @@ import MainSidebar from './components/MainSidebar/index.vue'
 import Search from './components/Search/index.vue'
 import SubSidebar from './components/SubSidebar/index.vue'
 import Topbar from './components/Topbar/index.vue'
-import LinkView from './components/views/link.vue'
 import IFrameView from './components/views/iframe.vue'
-import eventBus from '@/utils/eventBus'
-import useSettingsStore from '@/store/modules/settings'
-import useMenuStore from '@/store/modules/menu'
-import useKeepAliveStore from '@/store/modules/keepAlive'
+import LinkView from './components/views/link.vue'
 
 defineOptions({
   name: 'Layout',

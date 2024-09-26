@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import type { BreakPoint } from '@/components/Grid/interface'
 import type { FormInstance, FormRules } from 'element-plus'
 import type { ButtonAlign, FormItemProps } from './interface'
-import type { BreakPoint } from '@/components/Grid/interface'
 
 const props = defineProps({
   formData: {

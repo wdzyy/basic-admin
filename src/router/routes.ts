@@ -1,13 +1,13 @@
+import type { Route } from '#/global'
 import type { RouteRecordRaw } from 'vue-router'
+import useSettingsStore from '@/store/modules/settings'
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:meta-layouts'
-import MultilevelMenuExample from './modules/multilevel.menu.example'
-import ExternalChain from './modules/externalChain'
+import Basic from './modules/basic'
 import Components from './modules/components'
 import Echarts from './modules/echarts'
-import Basic from './modules/basic'
-import useSettingsStore from '@/store/modules/settings'
-import type { Route } from '#/global'
+import ExternalChain from './modules/externalChain'
+import MultilevelMenuExample from './modules/multilevel.menu.example'
 
 // 固定路由（默认路由）
 const constantRoutes: RouteRecordRaw[] = [

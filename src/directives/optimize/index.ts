@@ -1,3 +1,5 @@
+import type { Directive, DirectiveBinding } from 'vue'
+import { useEventListener } from '@vueuse/core'
 import {
   debounce,
   isArray,
@@ -5,8 +7,6 @@ import {
   isObject,
   throttle,
 } from 'lodash-es'
-import { useEventListener } from '@vueuse/core'
-import type { Directive, DirectiveBinding } from 'vue'
 
 /** 防抖（v-optimize或v-optimize:debounce）、节流（v-optimize:throttle）指令 */
 export const optimize: Directive = {

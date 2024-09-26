@@ -1,7 +1,7 @@
 <script setup lang="tsx">
-import { computed, inject, ref } from 'vue'
 import type { FormItemProps } from '../interface'
 import { handleProp } from '@/utils'
+import { computed, inject, ref } from 'vue'
 
 interface FormItem {
   column: FormItemProps

@@ -1,7 +1,7 @@
-import type { RouteMeta } from 'vue-router'
-import { defaultsDeep } from 'lodash-es'
 import type { Settings } from '#/global'
+import type { RouteMeta } from 'vue-router'
 import settingsDefault from '@/settings'
+import { defaultsDeep } from 'lodash-es'
 
 const useSettingsStore = defineStore(
   // 唯一ID

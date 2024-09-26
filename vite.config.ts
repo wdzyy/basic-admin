@@ -47,7 +47,7 @@ export default defineConfig(({ mode, command }) => {
           },
           chunkFileNames: 'js/[name]-[hash].js',
           assetFileNames(chunkInfo) {
-            const name = chunkInfo.name
+            const name = chunkInfo.name || ''
             const imgList = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.ico']
             if (name.endsWith('.css')) {
               return `css/[name]-[hash][extname]`

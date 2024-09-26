@@ -1,8 +1,8 @@
+import apiUser from '@/api/modules/user'
+import router from '@/router'
 import useMenuStore from './menu'
 import useRouteStore from './route'
 import useSettingsStore from './settings'
-import router from '@/router'
-import apiUser from '@/api/modules/user'
 
 const useUserStore = defineStore(
   // 唯一ID

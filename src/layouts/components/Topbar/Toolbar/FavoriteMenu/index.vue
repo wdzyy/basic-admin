@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import useSettingsStore from '@/store/modules/settings'
 import useMenuStore from '@/store/modules/menu'
+import useSettingsStore from '@/store/modules/settings'
 
 defineOptions({
   name: 'FavoriteMenu',

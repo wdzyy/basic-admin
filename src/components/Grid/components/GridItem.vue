@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { computed, inject, ref, useAttrs, watch } from 'vue'
 import type { BreakPoint, Responsive } from '../interface/index'
+import { computed, inject, ref, useAttrs, watch } from 'vue'
 
 defineOptions({
   name: 'GridItem',

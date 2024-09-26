@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import type { Tabbar } from '#/global'
+import useSettingsStore from '@/store/modules/settings'
+import useTabbarStore from '@/store/modules/tabbar'
 import ContextMenu from '@imengyu/vue3-context-menu'
 import { useMagicKeys } from '@vueuse/core'
-import Sortable from 'sortablejs'
 import hotkeys from 'hotkeys-js'
+import Sortable from 'sortablejs'
 import Message from 'vue-m-message'
-import useTabbarStore from '@/store/modules/tabbar'
-import useSettingsStore from '@/store/modules/settings'
-import type { Tabbar } from '#/global'
 import '@imengyu/vue3-context-menu/lib/vue3-context-menu.css'
 
 defineOptions({

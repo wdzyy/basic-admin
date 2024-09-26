@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import FavoriteMenu from './FavoriteMenu/index.vue'
-import Breadcrumb from './Breadcrumb/index.vue'
 import useSettingsStore from '@/store/modules/settings'
+import Breadcrumb from './Breadcrumb/index.vue'
+import FavoriteMenu from './FavoriteMenu/index.vue'
 
 defineOptions({
   name: 'ToolbarLeftSide',

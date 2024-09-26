@@ -8,10 +8,7 @@ import type { MessageType } from './interface'
  * @param {string} confirmType icon类型 (不必传,默认为 warning)
  * @returns {Promise}
  */
-export function useHandleData(api: (params: any) => Promise<any>,
-  params: any = {},
-  message: string,
-  confirmType: MessageType = 'warning') {
+export function useHandleData(api: (params: any) => Promise<any>, params: any = {}, message: string, confirmType: MessageType = 'warning') {
   return new Promise((resolve, reject) => {
     ElMessageBox.confirm(`是否${message}?`, '温馨提示', {
       confirmButtonText: '确定',

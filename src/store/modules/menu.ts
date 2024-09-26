@@ -1,13 +1,13 @@
+import type { Menu, Route } from '#/global'
+import type { FavoriteMenus } from '@/layouts/components/Topbar/Toolbar/FavoriteMenu/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import apiApp from '@/api/modules/app'
+import menu from '@/menu'
+import { resolveRoutePath } from '@/utils'
 import { cloneDeep } from 'lodash-es'
 import useRouteStore from './route'
 import useSettingsStore from './settings'
 import useUserStore from './user'
-import { resolveRoutePath } from '@/utils'
-import menu from '@/menu'
-import apiApp from '@/api/modules/app'
-import type { Menu, Route } from '#/global'
-import type { FavoriteMenus } from '@/layouts/components/Topbar/Toolbar/FavoriteMenu/index.vue'
 
 const useMenuStore = defineStore(
   // 唯一ID

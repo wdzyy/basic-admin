@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { computed, onMounted, provide, reactive, ref, unref, watch } from 'vue'
-import { ElTable } from 'element-plus'
-import { DCaret, Operation, Refresh, Search } from '@element-plus/icons-vue'
-import Sortable from 'sortablejs'
-import Pagination from './components/Pagination.vue'
-import ColSetting from './components/ColSetting.vue'
-import TableColumn from './components/TableColumn.vue'
 import type { ColumnProps, TypeProps, ZyTableProps } from './interface'
-import { useTable } from '@/hooks/useTable'
-import { useSelection } from '@/hooks/useSelection'
-import { handleProp } from '@/utils'
 import SearchForm from '@/components/SearchForm/index.vue'
+import { useSelection } from '@/hooks/useSelection'
+import { useTable } from '@/hooks/useTable'
+import { handleProp } from '@/utils'
+import { DCaret, Operation, Refresh, Search } from '@element-plus/icons-vue'
+import { ElTable } from 'element-plus'
+import Sortable from 'sortablejs'
+import { computed, onMounted, provide, reactive, ref, unref, watch } from 'vue'
+import ColSetting from './components/ColSetting.vue'
+import Pagination from './components/Pagination.vue'
+import TableColumn from './components/TableColumn.vue'
 
 defineOptions({
   name: 'ZyTable',
@@ -252,7 +252,7 @@ defineExpose({
               <el-button v-if="showToolButton('setting') && columns.length" :icon="Operation" circle />
             </template>
             <template #default>
-              <ColSetting v-model:colSetting="colSetting" />
+              <ColSetting v-model:col-setting="colSetting" />
             </template>
           </el-popover>
           <el-button

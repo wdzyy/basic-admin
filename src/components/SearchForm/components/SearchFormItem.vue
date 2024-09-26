@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
-import { handleProp } from '@/utils'
 import type { ColumnProps } from '@/components/ZyTable/interface'
+import { handleProp } from '@/utils'
+import { computed, inject, ref } from 'vue'
 
 interface SearchFormItem {
   column: ColumnProps
