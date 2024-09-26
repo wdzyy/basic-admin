@@ -19,6 +19,7 @@ import createBanner from './banner'
 import createViteCdnPlugin from './cdn'
 import configImageminPlugin from './imagemin'
 import createBundleAnalyzer from './bundle-analyzer'
+import createAppLoading from './vite-plugin-app-loading'
 
 export default function createVitePlugins(viteEnv, isBuild = false) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -45,6 +46,7 @@ export default function createVitePlugins(viteEnv, isBuild = false) {
   vitePlugins.push(createArchiver(viteEnv))
   vitePlugins.push(createConsole())
   vitePlugins.push(createBanner())
+  vitePlugins.push(createAppLoading())
 
   if (viteEnv.VITE_BUILD_CDN === 'true') {
     vitePlugins.push(createViteCdnPlugin())

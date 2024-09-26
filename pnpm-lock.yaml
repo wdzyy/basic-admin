@@ -261,6 +261,9 @@ importers:
       vite-bundle-analyzer:
         specifier: ^0.10.5
         version: 0.10.5
+      vite-plugin-app-loading:
+        specifier: ^0.3.0
+        version: 0.3.0
       vite-plugin-banner:
         specifier: ^0.7.1
         version: 0.7.1
@@ -6588,6 +6591,9 @@ packages:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
     peerDependencies:
       vite: ^2.6.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0
+
+  vite-plugin-app-loading@0.3.0:
+    resolution: {integrity: sha512-FJR40HCZ2CePVf9lJa+gDLi7YBB2V4eBeDeQp2fd3TBJr24oCHn4twhvNNYkGuQoROUhTdfZKX49JKVDYmpFYA==}
 
   vite-plugin-banner@0.7.1:
     resolution: {integrity: sha512-Bww2Xd5tOGsZ1yZ9rQiGneryvsL1u86znPrqeQjCsXPsG72pnSdV5lcQA+cy8UNDguMqyTJiCevlNUbLnT85UA==}
@@ -13864,6 +13870,8 @@ snapshots:
   vite-hot-client@0.2.3(vite@5.4.8(@types/node@22.1.0)(sass@1.77.8)(terser@5.31.5)):
     dependencies:
       vite: 5.4.8(@types/node@22.1.0)(sass@1.77.8)(terser@5.31.5)
+
+  vite-plugin-app-loading@0.3.0: {}
 
   vite-plugin-banner@0.7.1: {}
 
