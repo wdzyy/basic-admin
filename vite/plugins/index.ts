@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { loadEnv, type PluginOption } from 'vite'
 import appInfo from './app-info'
 
-import createArchiver from './archiver'
 import createAutoImport from './auto-import'
 import createBanner from './banner'
 import createBundleAnalyzer from './bundle-analyzer'
@@ -45,7 +44,6 @@ export default function createVitePlugins(mode: string, isBuild = false) {
   vitePlugins.push(createLayouts())
   vitePlugins.push(createPages())
   vitePlugins.push(...createCompression(viteEnv, isBuild))
-  vitePlugins.push(createArchiver(viteEnv))
   vitePlugins.push(createConsole())
   vitePlugins.push(createBanner())
   vitePlugins.push(createAppLoading())
